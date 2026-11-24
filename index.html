@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Selo de Risco de IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Páginas">
+  <div class="nav-in">
+    <a class="nav-brand" href="#inicio"><span class="logo-plate"><img src="logos/logo-observatorio.png" alt="Observatório Brasileiro da Inteligência Artificial na Educação" width="694" height="156"></span></a>
+    <div class="nav-links">
+      <a href="#inicio" data-view="inicio">Início</a>
+      <a href="#acervo" data-view="acervo">Acervo de selos</a>
+      <a href="#avaliar" data-view="avaliar">Avaliar uma plataforma</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<div class="view" id="v-inicio">
+<header class="top">
+  <div class="intro">
+    <p class="eyebrow">Matriz de riscos de plataformas educacionais com IA</p>
+    <h1>Selo de Risco de IA</h1>
+    <p class="lead">Ferramenta para gestores da rede analisarem uma plataforma de IA nova ou já em uso. A análise percorre 9 critérios, organizados em 3 categorias, e gera um selo circular que mostra o nível de risco de cada critério, além de um relatório que explica o motivo de cada classificação.</p>
+  </div>
+  <ol class="steps" aria-label="Como usar">
+    <li><div><b>Consulte o <a href="#acervo">acervo de selos</a></b>Veja se a plataforma já tem selo e qual foi a última avaliação.</div></li>
+    <li><div><b><a href="#avaliar">Avalie</a> os 9 critérios</b>Leia cada pergunta norteadora e escolha, na rubrica, o nível de risco que melhor descreve a plataforma.</div></li>
+    <li><div><b>Gere o selo e o relatório</b>Salve no acervo para que outros gestores consultem e baixe o relatório para subsidiar a decisão.</div></li>
+  </ol>
+</header>
+
+<section aria-labelledby="h-escala">
+  <div class="sec-head">
+    <h2 id="h-escala">Escala de risco</h2>
+    <p class="muted">Cada critério recebe um nível de risco. O selo geral assume o pior nível entre os critérios.</p>
+  </div>
+  <div class="scale" id="scale"></div>
+  <div class="rule" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+    <div><b>O pior nível define o selo</b><span class="muted">Um único critério em Risco Alto torna a plataforma Risco Alto.</span></div>
+    <div><b>Todos os critérios são obrigatórios</b><span class="muted">Quem avalia escolhe um nível de risco para cada um dos 9 critérios.</span></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-crit">
+  <div class="sec-head wide">
+    <h2 id="h-crit">Os 9 critérios</h2>
+    <p class="muted">O selo é um círculo com três categorias, cada uma com três critérios. Toque em um setor para ver a pergunta norteadora e a descrição.</p>
+  </div>
+  <div class="wheel-intro">
+    <div class="wheel-box" id="wheel-inicio"></div>
+    <div class="crit-info" id="crit-info" aria-live="polite"></div>
+  </div>
+</section>
+</div>
+
+<div class="view" id="v-acervo" hidden>
+<section aria-labelledby="h-acervo">
+  <div class="sec-head">
+    <h2 id="h-acervo">Acervo de selos</h2>
+    <p class="muted">Plataformas registradas pela rede. As avaliações ficam guardadas com data, o que permite acompanhar se cada plataforma está se adequando ao ECA Digital. Toque em um selo para ver o relatório ou avaliar novamente.</p>
+    <p class="legend-nv"><i aria-hidden="true"></i>Setor cinza: critério ainda sem classificação. O centro só recebe a cor do selo quando os 9 critérios forem avaliados ou quando houver um Risco Crítico.</p>
+  </div>
+  <p class="status" id="acervo-status" role="status">Carregando o acervo…</p>
+  <div id="rascunhos"></div>
+  <div class="labels" id="acervo"></div>
+</section>
+<section class="res" id="res-acervo" aria-label="Selo e relatório" hidden>
+  <div class="sec-head"><h2>Selo e relatório</h2></div>
+  <div class="result"><div class="lab-wrap res-label"></div><article class="report res-report"></article></div>
+</section>
+</div>
+
+<div class="view" id="v-avaliar" hidden>
+<section aria-labelledby="h-avaliar" id="avaliar-form">
+  <div class="sec-head">
+    <h2 id="h-avaliar">Avaliar uma plataforma</h2>
+    <p class="muted">Preencha a identificação e toque em cada setor do selo para avaliar o critério. O setor ganha a cor do risco escolhido.</p>
+  </div>
+  <form class="form" id="form" novalidate>
+    <div class="fields">
+      <div class="field"><label for="f-nome">Plataforma</label><input id="f-nome" required autocomplete="off"></div>
+      <div class="field"><label for="f-versao">Versão ou plano</label><input id="f-versao" autocomplete="off"></div>
+      <div class="field"><label for="f-avaliador">Quem está respondendo</label><input id="f-avaliador" autocomplete="off"></div>
+      <div class="field"><label for="f-data">Data da avaliação</label><input id="f-data" type="date"></div>
+    </div>
+    <p class="verif-geral"><b>Antes de começar:</b> em todos os testes, use contas fictícias, sem dados reais de estudantes. Registre a data, a versão da ferramenta e capturas de tela de cada verificação.</p>
+    <div class="draft-banner" id="draft-banner" hidden></div>
+<div class="aval-grid">
+      <aside class="aval-wheel">
+        <div class="wheel-box" id="wheel-avaliar"></div>
+        <p class="aval-prog" id="aval-prog" role="status"></p>
+      </aside>
+      <div class="aval-panel">
+        <div id="items"></div>
+        <div class="aval-nav">
+          <button class="btn ghost" type="button" id="btn-ant">Critério anterior</button>
+          <button class="btn" type="button" id="btn-prox">Próximo critério</button>
+        </div>
+      </div>
+    </div>
+    <div class="field"><label for="f-obs">Observações gerais</label><textarea id="f-obs" rows="3"></textarea></div>
+    <section class="evid" id="evid" aria-labelledby="h-evid">
+      <p class="if-label">Indicador à parte · não altera o selo de risco</p>
+      <h3 id="h-evid">Evidência de impacto na aprendizagem</h3>
+      <p class="muted">Registre se há estudos que mostram que a plataforma melhora a aprendizagem. Este indicador aparece ao lado do selo e no relatório, mas não muda o nível de risco.</p>
+      <details class="rot evid-guia"><summary><span class="rot-head" style="font-size:18px">Como reconhecer cada nível</span><span class="rot-open" aria-hidden="true"></span></summary>
+        <div class="evid-guia-body">
+          <p>Peça ao fornecedor os estudos que sustentam o que ele afirma sobre aprendizagem e faça estas perguntas:</p>
+          <ol>
+            <li><b>O estudo mede aprendizagem?</b> Provas, avaliações ou produções dos estudantes contam. Tempo de uso, satisfação ou número de acessos não medem aprendizagem.</li>
+            <li><b>Há grupo de comparação?</b> Sem comparar com estudantes que não usaram a plataforma, não dá para saber se a melhora veio dela.</li>
+            <li><b>Como os grupos foram formados?</b> Por sorteio (randomizado) é o mais forte. Grupos escolhidos por adesão ou interesse tendem a superestimar o efeito.</li>
+            <li><b>Quem fez o estudo?</b> Pesquisadores independentes do fornecedor e publicação com método descrito dão mais confiança.</li>
+            <li><b>Vale para a nossa rede?</b> Verifique etapa, tipo de rede, contexto e a versão da plataforma estudada. Um estudo antigo ou feito em outro contexto vale menos para a decisão atual.</li>
+          </ol>
+          <p class="muted">Classifique pelo estudo mais forte disponível e anote no campo de fonte as ressalvas (versão, contexto, data).</p>
+        </div>
+      </details>
+      <div class="rcards evid-cards"></div>
+      <div class="field"><label for="ev-fonte">Estudo ou fonte (com data e contexto)</label><textarea id="ev-fonte" rows="2"></textarea></div>
+    </section>
+    <div class="form-actions">
+      <button class="btn" type="submit">Gerar selo e relatório</button>
+      <button class="btn ghost" type="button" id="btn-rascunho">Salvar e continuar depois</button>
+      <button class="btn ghost" type="button" id="btn-limpar">Limpar formulário</button>
+      <span class="err" id="form-err" role="alert"></span>
+    </div>
+  </form>
+</section>
+
+<section class="res" id="res-avaliar" aria-label="Selo e relatório" hidden>
+  <div class="sec-head"><h2>Selo e relatório</h2></div>
+  <div class="result"><div class="lab-wrap res-label"></div><article class="report res-report"></article></div>
+</section>
+</div>
+
+</div>
+
+<footer class="site-foot"><div class="foot-in"><span class="foot-label">Realização</span><span class="logo-plate"><img src="logos/logo-2.png" alt="Transformative Learning Technologies Lab (TLTL) e Teachers College, Columbia University" width="170" height="60"></span><span class="logo-plate"><img src="logos/logo-3.png" alt="Fundação Itaú" width="123" height="112"></span></div></footer>
+
+<dialog id="kit" class="kit" aria-labelledby="kit-title">
+  <div class="kit-in">
+    <header class="kit-h"><div><span class="cat-tag" id="kit-tag"></span><h3 id="kit-title"></h3></div>
+      <button type="button" class="kit-x" id="kit-x" data-kit-close aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+    <div class="kit-body" id="kit-body"></div>
+    <footer class="kit-f"><span class="rot-msg" id="kit-msg" role="status"></span><button type="button" class="btn ghost sm" data-kit-close>Fechar</button><button type="button" class="btn sm" id="kit-copy" data-kit-copy>Copiar</button></footer>
+  </div>
+</dialog>
+
+<script src="storage.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

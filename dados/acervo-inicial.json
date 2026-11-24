@@ -1,0 +1,276 @@
+{
+ "em": "2026-11-19",
+ "docs": [
+  {
+   "avaliador": "Tatiana",
+   "data": "2026-11-09",
+   "ferramenta": "gatomia",
+   "fontes": {
+    "design": "",
+    "faixa": "",
+    "mediacao": "",
+    "perfilamento": "",
+    "privacidade": "",
+    "qualidade": "",
+    "soberania": "",
+    "transparencia": "",
+    "vies": ""
+   },
+   "motivos": {
+    "design": "",
+    "faixa": "",
+    "mediacao": "",
+    "perfilamento": "",
+    "privacidade": "",
+    "qualidade": "",
+    "soberania": "",
+    "transparencia": "",
+    "vies": ""
+   },
+   "niveis": {
+    "design": "moderado",
+    "faixa": "baixo",
+    "mediacao": "alto",
+    "perfilamento": "baixo",
+    "privacidade": "moderado",
+    "qualidade": "baixo",
+    "soberania": "moderado",
+    "transparencia": "moderado",
+    "vies": "baixo"
+   },
+   "nome": "GatomIa",
+   "obs": "",
+   "rubrica": {
+    "design": "Usa alguns elementos de engajamento (ex.: pontos, selos, lembretes ocasionais), mas sem pressão por uso contínuo. Os controles para desativá-los existem, porém são pouco visíveis ou parciais. Identifica-se como plataforma, mas usa mascote ou personagem com nome, ou expressões afetivas ocasionais (ex.: \"fiquei feliz com seu progresso\").",
+    "faixa": "Informa a faixa etária e as etapas de ensino a que se destina, com idade mínima nos termos de uso compatível com os estudantes da rede. Oferece perfis ou configurações por etapa, bloqueia funções incompatíveis com a idade (ex.: chat aberto e geração de imagens para crianças) e tem salvaguardas específicas para crianças e adolescentes. Na Educação Infantil, o uso é feito apenas pelo adulto.",
+    "mediacao": "Entrega respostas prontas e realiza tarefas inteiras pelo estudante (ex.: redações, resoluções completas). O uso é individual e isolado, sem propostas de investigação, colaboração ou diálogo com colegas e professores.",
+    "perfilamento": "Lista pública de inferências e critérios; nenhum rótulo gera ação sem revisão humana; rótulos visíveis e contestáveis por estudante e família; recomendação personalizada pode ser desativada.",
+    "privacidade": "Declaram finalidade educacional, mas com lacunas: não há prazos de retenção definidos, os terceiros aparecem só por categoria ou o uso de dados anonimizados para desenvolver produtos não é detalhado. Não há proibição expressa de treinar modelos de IA.",
+    "qualidade": "Respostas consistentes e alinhadas ao currículo em testes amostrais. Admite quando não sabe, corrige afirmações erradas do estudante e informa de forma visível os limites do modelo.",
+    "soberania": "Tem representante no Brasil e informa onde guarda os dados, mas a portabilidade é parcial (ex.: apenas relatórios em PDF) ou o plano de saída não está no contrato. Reajustes e custos de renovação são pouco detalhados.",
+    "transparencia": "Sinaliza o uso de IA, mas de forma discreta ou incompleta. As explicações são genéricas ou técnicas demais, e os critérios só aparecem na documentação. A revisão pelo professor é possível, mas pouco facilitada.",
+    "vies": "Evita estereótipos e linguagem discriminatória. Contempla a diversidade regional, étnico-racial, de gênero, de deficiência e socioeconômica. A qualidade é equivalente entre grupos. O fornecedor documenta testes de viés e oferece canal para denúncia."
+   },
+   "salvoEm": "2026-11-09T18:33:04.417Z",
+   "status": "avaliada",
+   "versao": "2.0",
+   "id": "gatomia--1794249184417"
+  },
+  {
+   "avaliador": "Análise preliminar de documentos públicos, a validar pela rede",
+   "data": "2026-11-06",
+   "ferramenta": "letrus",
+   "fontes": {
+    "design": "",
+    "faixa": "Política de privacidade: letrus.com/privacidade",
+    "mediacao": "Estudo de caso da J-PAL: povertyactionlab.org/case-study/artificial-intelligence-strengthen-high-school-students-writing-skills",
+    "perfilamento": "Política de privacidade: letrus.com/privacidade",
+    "privacidade": "Política de privacidade, atualizada em 19/11/2024: letrus.com/privacidade",
+    "soberania": "Política de privacidade: letrus.com/privacidade",
+    "transparencia": "Política de privacidade: letrus.com/privacidade",
+    "vies": ""
+   },
+   "motivos": {
+    "design": "Não há evidência pública sobre mecanismos de engajamento. Verificar em uso.",
+    "faixa": "A política tem versão simplificada para menores e exige consentimento do responsável para crianças em alguns casos, mas não indica as etapas atendidas nem as funções bloqueadas por idade. Evidência insuficiente para classificar.",
+    "mediacao": "No estudo da J-PAL, os alunos escreveram mais redações e passaram a discutir mais textos com os professores, que ganharam tempo para atendimento individual. A devolutiva automática se concentra em estilo e sintaxe. Não há evidência de interação entre estudantes.",
+    "perfilamento": "A política informa que a empresa pode coletar dados sobre o perfil comportamental do aluno por questionários. Também diz que devolutivas e relatórios são feitos pela tecnologia e podem contar com corretores humanos, ou seja, a revisão humana não é garantida. Não descreve como contestar essas avaliações nem como desativar o perfilamento.",
+    "privacidade": "A política limita o uso dos dados dos alunos às finalidades indicadas pelas escolas parceiras. Porém, envia dados agregados a ferramentas de IA para aprimorar o produto, sem dizer se as redações treinam modelos. Também não fixa prazos de retenção nem trata da exclusão ao fim do contrato com a rede.",
+    "soberania": "O fornecedor é brasileiro (Centro de Autoria e Cultura Ltda., CNPJ 21.590.974/0001-42, São Paulo) e tem encarregada de dados identificada. Os dados ficam em servidores nos EUA (AWS e Google), e a política declara essa transferência. Não há garantia pública de portabilidade em formato aberto nem plano de saída. As condições comerciais dependem do contrato.",
+    "transparencia": "A política informa que as devolutivas são feitas pela tecnologia da Letrus e podem ser feitas junto com corretores humanos. Não fica claro se o estudante sabe qual devolutiva veio da IA e qual veio de uma pessoa, nem como os critérios da correção são explicados a ele.",
+    "vies": "Não há evidência pública suficiente. Exige analisar as devolutivas e os conteúdos da plataforma."
+   },
+   "niveis": {
+    "design": "nv",
+    "faixa": "nv",
+    "mediacao": "moderado",
+    "perfilamento": "alto",
+    "privacidade": "moderado",
+    "soberania": "moderado",
+    "transparencia": "moderado",
+    "vies": "nv"
+   },
+   "nome": "Letrus",
+   "obs": "Classificação feita antes da rubrica e sem uso da plataforma. Fontes: política de privacidade (atualizada em 19/11/2024) e estudo de caso da J-PAL sobre a avaliação randomizada no Espírito Santo (2019).",
+   "preliminar": true,
+   "salvoEm": "2026-11-06T19:35:00Z",
+   "status": "avaliada",
+   "versao": "Documentos públicos consultados em 06/11/2026",
+   "id": "letrus--prelim-20261106"
+  },
+  {
+   "avaliador": "Análise preliminar de documentos públicos, a validar pela rede",
+   "data": "2026-11-09",
+   "ferramenta": "letrus",
+   "fontes": {
+    "design": "",
+    "faixa": "Política de privacidade da Letrus, atualizada em 19/11/2024 (letrus.com/privacidade)",
+    "mediacao": "Estudo de caso da J-PAL (povertyactionlab.org/case-study/artificial-intelligence-strengthen-high-school-students-writing-skills)",
+    "perfilamento": "Política de privacidade da Letrus, atualizada em 19/11/2024 (letrus.com/privacidade)",
+    "privacidade": "Política de privacidade da Letrus, atualizada em 19/11/2024 (letrus.com/privacidade)",
+    "qualidade": "",
+    "soberania": "Política de privacidade da Letrus, atualizada em 19/11/2024 (letrus.com/privacidade)",
+    "transparencia": "Política de privacidade da Letrus, atualizada em 19/11/2024 (letrus.com/privacidade)",
+    "vies": ""
+   },
+   "motivos": {
+    "design": "Não há evidência pública sobre mecanismos de engajamento ou humanização. Verificar em uso.",
+    "faixa": "A política tem versão simplificada para menores e prevê consentimento do responsável, mas não indica as etapas atendidas nem as funções bloqueadas por idade.",
+    "mediacao": "Evidência: no estudo da J-PAL, os alunos escreveram mais redações e os professores passaram a discutir mais textos com eles. A devolutiva automática foca estilo e sintaxe, sem escrever pelo estudante. O uso é individual, sem evidência de colaboração entre estudantes.",
+    "perfilamento": "Evidência: a política prevê coletar o perfil comportamental do aluno por questionários e diz que devolutivas e relatórios podem contar com corretores humanos, ou seja, a revisão humana não é exigida. Não descreve como contestar nem como desativar. Sobe para Alto ou Crítico se as notas automáticas forem usadas em avaliações oficiais sem revisão do professor.",
+    "privacidade": "Evidência: a política limita o uso às finalidades indicadas pelas escolas, mas envia dados agregados a ferramentas de IA para aprimorar o produto, não fixa prazos de retenção e não proíbe expressamente o treino de modelos de IA.",
+    "qualidade": "Exige testar as devolutivas da plataforma. O estudo da J-PAL mede efeitos na escrita, não a precisão das devolutivas.",
+    "soberania": "Evidência: empresa brasileira (Centro de Autoria e Cultura Ltda., CNPJ 21.590.974/0001-42) com encarregada de dados identificada. Declara armazenamento nos EUA (AWS e Google). Portabilidade, plano de saída e reajustes não aparecem em documentos públicos e dependem do contrato.",
+    "transparencia": "Evidência: a política informa que devolutivas e relatórios são feitos pela tecnologia da Letrus e podem contar com corretores humanos. Não fica claro para o estudante qual devolutiva veio da IA e qual veio de uma pessoa. Sobe para Alto se, em uso, não houver essa distinção na tela.",
+    "vies": "Exige analisar as devolutivas e os conteúdos. Não há documentação pública de testes de viés."
+   },
+   "niveis": {
+    "design": "nv",
+    "faixa": "nv",
+    "mediacao": "moderado",
+    "perfilamento": "moderado",
+    "privacidade": "moderado",
+    "qualidade": "nv",
+    "soberania": "moderado",
+    "transparencia": "moderado",
+    "vies": "nv"
+   },
+   "nome": "Letrus",
+   "obs": "Classificação feita com a rubrica, mas sem uso da plataforma. Critérios que dependem de teste ficaram como Não avaliado.",
+   "preliminar": true,
+   "rubrica": {
+    "design": "",
+    "faixa": "",
+    "mediacao": "Oferece pistas em parte das interações, mas entrega a resposta pronta quando o estudante insiste. O uso é sobretudo individual, com poucas propostas de colaboração entre estudantes ou de mediação pelo professor.",
+    "perfilamento": "Classificações documentadas, mas não visíveis às famílias; desativação parcial; revisão humana recomendada, não exigida pelo sistema.",
+    "privacidade": "Declaram finalidade educacional, mas com lacunas: não há prazos de retenção definidos, os terceiros aparecem só por categoria ou o uso de dados anonimizados para desenvolver produtos não é detalhado. Não há proibição expressa de treinar modelos de IA.",
+    "qualidade": "",
+    "soberania": "Tem representante no Brasil e informa onde guarda os dados, mas a portabilidade é parcial (ex.: apenas relatórios em PDF) ou o plano de saída não está no contrato. Reajustes e custos de renovação são pouco detalhados.",
+    "transparencia": "Sinaliza o uso de IA, mas de forma discreta ou incompleta. As explicações são genéricas ou técnicas demais, e os critérios só aparecem na documentação. A revisão pelo professor é possível, mas pouco facilitada.",
+    "vies": ""
+   },
+   "salvoEm": "2026-11-09T18:30:00Z",
+   "status": "avaliada",
+   "versao": "Documentos públicos consultados em 06/11/2026",
+   "id": "letrus--rubrica-20261109",
+   "evidencia": {
+    "nivel": "experimental",
+    "fonte": "Avaliação randomizada apoiada pela J-PAL (Ferman, Lima e Riva) em 178 escolas públicas do Espírito Santo, em 2019, com estudantes do 3º ano do ensino médio: aumento de cerca de 0,1 desvio-padrão na nota da redação do ENEM, com e sem correção humana complementar. Ressalvas: versão da plataforma de 2019, uma única rede estadual e, na versão consultada, artigo em formato de working paper (2020). Fontes: estudo de caso da J-PAL (povertyactionlab.org) e MPRA Paper nº 103934."
+   }
+  },
+  {
+   "data": "",
+   "ferramenta": "letrus",
+   "nome": "Letrus",
+   "status": "pendente",
+   "versao": "",
+   "id": "letrus"
+  },
+  {
+   "avaliador": "Análise preliminar de documentos públicos, a validar pela rede",
+   "data": "2026-11-06",
+   "ferramenta": "matific",
+   "fontes": {
+    "design": "Página de recursos: matific.com/ca/en-ca/home/product-features",
+    "faixa": "Política de privacidade: matific.com/home/privacy",
+    "mediacao": "Página de recursos: matific.com/ca/en-ca/home/product-features",
+    "perfilamento": "Política de privacidade (matific.com/home/privacy) e página de recursos (matific.com/ca/en-ca/home/product-features)",
+    "privacidade": "Política de privacidade, modificada em 10/06/2024: matific.com/home/privacy",
+    "soberania": "Política de privacidade, modificada em 10/06/2024: matific.com/home/privacy",
+    "transparencia": "Página de recursos (matific.com/ca/en-ca/home/product-features) e política de privacidade",
+    "vies": ""
+   },
+   "motivos": {
+    "design": "A página de recursos descreve avatares com itens desbloqueáveis, metas e conquistas, baús que incentivam rejogar e placares de classificação. Não há informação pública sobre limites de sessão nem sobre desativar esses mecanismos. Verificar em uso.",
+    "faixa": "A política indica uso da Educação Infantil ao 6º ano, com cadastro feito por pais, professores ou escola, e a versão escolar tem o selo kidSAFE. A IA descrita é um assistente para professores, não para interação direta dos alunos.",
+    "mediacao": "Não há evidência suficiente para classificar. A página cita quizzes ao vivo em equipe e divisão da turma em grupos, mas avaliar se a plataforma estimula o pensamento sem entregar respostas exige observar o uso.",
+    "perfilamento": "A política afirma não fazer perfilamento nem decisões automatizadas. Mas o produto aplica teste de nivelamento, usa um algoritmo para escolher as atividades de cada aluno e gera relatórios que agrupam alunos. Os critérios dessa adaptação não são explicados publicamente, e não há informação sobre desativar a personalização.",
+    "privacidade": "A política declara que a plataforma não exibe publicidade e não vende dados pessoais, e restringe o uso à operação do serviço. Porém, usa dados anonimizados para desenvolver produtos e planejar marketing, não menciona o treino de modelos de IA, não fixa prazos de retenção e lista terceiros só por categoria, sem nomeá-los.",
+    "soberania": "O fornecedor é a Slate Science Pty Ltd., com sede em Sydney (Austrália). A política não menciona a LGPD nem um representante no Brasil. Informa transferência de dados para EUA, Austrália e Brasil, mas não garante portabilidade em formato aberto nem plano de saída ou exclusão ao fim do contrato com a rede.",
+    "transparencia": "A página de recursos descreve de forma geral o nivelamento, a adaptação das atividades e um assistente de IA para professores. A política de privacidade não explica esse assistente nem como a IA usa os dados. Não há informação sobre explicações em linguagem acessível para estudantes e famílias.",
+    "vies": "Não há evidência pública suficiente. Exige analisar os conteúdos e imagens da plataforma."
+   },
+   "niveis": {
+    "design": "moderado",
+    "faixa": "baixo",
+    "mediacao": "nv",
+    "perfilamento": "moderado",
+    "privacidade": "moderado",
+    "soberania": "alto",
+    "transparencia": "moderado",
+    "vies": "nv"
+   },
+   "nome": "Matific",
+   "obs": "Classificação feita antes da rubrica e sem uso da plataforma. Fontes: política de privacidade (modificada em 10/06/2024) e página de recursos do produto. Há divergência entre a faixa indicada na política (Educação Infantil ao 6º ano) e na página de recursos (até o 9º ano).",
+   "preliminar": true,
+   "salvoEm": "2026-11-06T19:35:00Z",
+   "status": "avaliada",
+   "versao": "Documentos públicos consultados em 06/11/2026",
+   "id": "matific--prelim-20261106"
+  },
+  {
+   "avaliador": "Análise preliminar de documentos públicos, a validar pela rede",
+   "data": "2026-11-09",
+   "ferramenta": "matific",
+   "fontes": {
+    "design": "Página de recursos do Matific (matific.com/ca/en-ca/home/product-features)",
+    "faixa": "Política de privacidade do Matific, modificada em 10/06/2024 (matific.com/home/privacy)",
+    "mediacao": "Página de recursos do Matific (matific.com/ca/en-ca/home/product-features)",
+    "perfilamento": "Política de privacidade do Matific, modificada em 10/06/2024 (matific.com/home/privacy); Página de recursos do Matific (matific.com/ca/en-ca/home/product-features)",
+    "privacidade": "Política de privacidade do Matific, modificada em 10/06/2024 (matific.com/home/privacy)",
+    "qualidade": "",
+    "soberania": "Política de privacidade do Matific, modificada em 10/06/2024 (matific.com/home/privacy)",
+    "transparencia": "Página de recursos do Matific (matific.com/ca/en-ca/home/product-features); Política de privacidade do Matific, modificada em 10/06/2024 (matific.com/home/privacy)",
+    "vies": ""
+   },
+   "motivos": {
+    "design": "Evidência: a página de recursos descreve avatares com itens desbloqueáveis, metas e conquistas, baús que incentivam rejogar e placares de classificação. Não há informação pública sobre controles para desativá-los nem sobre mascote ou linguagem afetiva. Verificar em uso: se houver sequências diárias ou recompensas por tempo, o nível sobe para Alto.",
+    "faixa": "Evidência: a política indica uso da Educação Infantil ao 6º ano, com cadastro feito por adultos (pais, professores ou escola), e a versão escolar tem o selo kidSAFE. A IA descrita é um assistente para professores, sem chat aberto para estudantes. Há divergência: a página de recursos menciona conteúdo até o 9º ano.",
+    "mediacao": "A página cita quizzes ao vivo em equipe e divisão da turma em grupos, mas avaliar se a plataforma entrega respostas prontas exige observar o uso.",
+    "perfilamento": "Evidência: a política afirma não fazer perfilamento, mas o produto aplica teste de nivelamento, um algoritmo escolhe as atividades e os relatórios agrupam alunos. Os critérios não são públicos e não há informação sobre desativar a personalização. Sobe para Alto se houver rótulos automáticos visíveis sem possibilidade de contestação.",
+    "privacidade": "Evidência: a política declara que não exibe publicidade e não vende dados, mas usa dados anonimizados para desenvolver produtos e planejar marketing, não fixa prazos de retenção, lista terceiros só por categoria e não proíbe expressamente o treino de modelos de IA.",
+    "qualidade": "Exige testar as respostas e atividades da plataforma. Não há evidência pública suficiente.",
+    "soberania": "Evidência: o fornecedor é a Slate Science Pty Ltd., com sede em Sydney. A política não menciona representante no Brasil nem a LGPD, informa transferência de dados para EUA, Austrália e Brasil e não garante portabilidade em formato aberto nem plano de saída ao fim do contrato.",
+    "transparencia": "Evidência: a página de recursos descreve de forma geral o nivelamento, a adaptação das atividades e um assistente de IA para professores. A política de privacidade não explica esse assistente nem os critérios da adaptação.",
+    "vies": "Exige analisar conteúdos e imagens da plataforma. Não há documentação pública de testes de viés."
+   },
+   "niveis": {
+    "design": "moderado",
+    "faixa": "baixo",
+    "mediacao": "nv",
+    "perfilamento": "moderado",
+    "privacidade": "moderado",
+    "qualidade": "nv",
+    "soberania": "alto",
+    "transparencia": "moderado",
+    "vies": "nv"
+   },
+   "nome": "Matific",
+   "obs": "Classificação feita com a rubrica, mas sem uso da plataforma. Critérios que dependem de teste ficaram como Não avaliado.",
+   "preliminar": true,
+   "rubrica": {
+    "design": "Usa alguns elementos de engajamento (ex.: pontos, selos, lembretes ocasionais), mas sem pressão por uso contínuo. Os controles para desativá-los existem, porém são pouco visíveis ou parciais. Identifica-se como plataforma, mas usa mascote ou personagem com nome, ou expressões afetivas ocasionais (ex.: \"fiquei feliz com seu progresso\").",
+    "faixa": "Informa a faixa etária e as etapas de ensino a que se destina, com idade mínima nos termos de uso compatível com os estudantes da rede. Oferece perfis ou configurações por etapa, bloqueia funções incompatíveis com a idade (ex.: chat aberto e geração de imagens para crianças) e tem salvaguardas específicas para crianças e adolescentes. Na Educação Infantil, o uso é feito apenas pelo adulto.",
+    "mediacao": "",
+    "perfilamento": "Classificações documentadas, mas não visíveis às famílias; desativação parcial; revisão humana recomendada, não exigida pelo sistema.",
+    "privacidade": "Declaram finalidade educacional, mas com lacunas: não há prazos de retenção definidos, os terceiros aparecem só por categoria ou o uso de dados anonimizados para desenvolver produtos não é detalhado. Não há proibição expressa de treinar modelos de IA.",
+    "qualidade": "",
+    "soberania": "Não tem representante nem atendimento no Brasil, ou o foro do contrato é estrangeiro. Não informa onde os dados são armazenados nem garante portabilidade e exclusão ao fim do contrato. Gratuidade temporária ou preços sem previsibilidade criam dependência da rede.",
+    "transparencia": "Sinaliza o uso de IA, mas de forma discreta ou incompleta. As explicações são genéricas ou técnicas demais, e os critérios só aparecem na documentação. A revisão pelo professor é possível, mas pouco facilitada.",
+    "vies": ""
+   },
+   "salvoEm": "2026-11-09T18:30:00Z",
+   "status": "avaliada",
+   "versao": "Documentos públicos consultados em 06/11/2026",
+   "id": "matific--rubrica-20261109"
+  },
+  {
+   "data": "",
+   "ferramenta": "matific",
+   "nome": "Matific",
+   "status": "pendente",
+   "versao": "",
+   "id": "matific"
+  }
+ ]
+}
