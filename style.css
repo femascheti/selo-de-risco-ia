@@ -372,3 +372,59 @@ th{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute
 
 /* Setores sem classificação aparecem na cor do eixo (legenda do acervo). */
 .legend-nv i{background:linear-gradient(90deg,var(--axis-integridade) 0 33%,var(--axis-protecao) 33% 66%,var(--axis-dados) 66%)!important}
+
+/* ---------- onboarding: boas-vindas e "Antes de começar" ---------- */
+:root{--area-ped:#912A8D;--area-jur:#004B85;--area-ti:#0E7C86;--area-ges:#5B5F66}
+.nav-help{min-height:44px;padding:8px 4px;background:none;border:0;color:var(--accent);font-family:var(--display);font-weight:700;font-size:18px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.prep-link{font-size:16px;color:var(--muted);margin-top:12px}
+.prep-link a{font-weight:700}
+.area-tags{display:flex;flex-wrap:wrap;gap:8px}
+.area{display:inline-block;padding:3px 10px;border-radius:999px;color:#fff;font-weight:700;font-size:13px;line-height:1.4}
+.a-ped{background:var(--area-ped)}.a-jur{background:var(--area-jur)}.a-ti{background:var(--area-ti)}.a-ges{background:var(--area-ges)}
+
+.welcome{width:min(620px,calc(100% - 32px));max-height:calc(100% - 32px);padding:0;border:0;border-radius:16px;background:var(--surface);color:var(--ink);box-shadow:0 20px 60px rgba(0,30,60,.35);overflow:auto}
+.welcome::backdrop{background:rgba(0,30,60,.55)}
+.wel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 24px 0}
+.wel-step{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.wel-skip{min-height:44px;background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer}
+.wel-slide{display:flex;flex-direction:column;gap:12px;padding:6px 24px 8px}
+.wel-slide h2{color:var(--head);font-size:30px}
+.wel-wheel{display:flex;justify-content:center}
+.wel-wheel svg{width:min(260px,70vw);height:auto}
+.wel-lv{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.wel-lv span{border-radius:6px;padding:6px 8px;font-size:14px;font-weight:700;text-align:center}
+.wel-gets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.wel-gets div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px}
+.wel-gets b{display:block;color:var(--head);font-family:var(--display);font-size:19px}
+.wel-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 24px 22px}
+.wel-dots{display:flex;gap:6px}
+.wel-dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.wel-dots i.on{background:var(--accent)}
+.wel-btns{display:flex;gap:8px}
+.welcome .btn{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.welcome .btn.ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+
+.prep-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.prep-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.prep-card.wide{grid-column:1/-1}
+.prep-card h3{color:var(--head)}
+.prep-card h3 small{display:block;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.chk{list-style:none;margin:0;padding:0}
+.chk li{border-bottom:1px dashed var(--line)}
+.chk li:last-child{border:0}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16px;line-height:1.4;cursor:pointer}
+.chk input{width:18px;height:18px;margin-top:2px;accent-color:var(--accent);flex:none}
+.prep-areas{width:100%;border-collapse:collapse;font-size:15px}
+.prep-areas th,.prep-areas td{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.prep-areas th{font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:normal;text-transform:none;color:var(--ink);width:52%}
+.prep-areas td .area{margin:0 4px 4px 0}
+.small{font-size:14px}
+.prep-actions{display:flex;flex-wrap:wrap;gap:10px}
+a.btn{display:inline-flex;align-items:center;text-decoration:none}
+@media (max-width:700px){.prep-grid,.wel-gets{grid-template-columns:1fr}.wel-lv{grid-template-columns:1fr 1fr}.wel-slide h2{font-size:26px}.prep-areas th{width:auto}}
+@media print{
+  .nav,.site-foot,.prep-actions,.prep-link,dialog{display:none!important}
+  .wrap{padding:0}
+  .prep-card{break-inside:avoid}
+  .area{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}

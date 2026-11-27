@@ -1165,7 +1165,7 @@ function showResult(ev, {saved, history=[], where='avaliar'} = {}){
 }
 
 /* ---------- páginas ---------- */
-const VIEWS = ['inicio','acervo','avaliar'];
+const VIEWS = ['inicio','preparar','acervo','avaliar'];
 function route(){
   const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'inicio';
   VIEWS.forEach(n => { document.getElementById('v-'+n).hidden = n !== v; });
@@ -1174,6 +1174,48 @@ function route(){
 }
 window.addEventListener('hashchange', route);
 route();
+
+/* ---------- onboarding: "Antes de começar" e boas-vindas ---------- */
+const AREA_TAG = {ped:['a-ped','Pedagógica'], jur:['a-jur','Jurídica'], ti:['a-ti','TI'], ges:['a-ges','Gestão']};
+const AREAS = {qualidade:['ped'], vies:['ped'], transparencia:['ped','ges'], design:['ped'], faixa:['ped','jur'],
+  mediacao:['ped'], privacidade:['jur','ti'], perfilamento:['ped','ti'], soberania:['jur','ti','ges']};
+document.getElementById('prep-areas').innerHTML = WHEEL_ITEMS.map(i => `<tr><th scope="row">${esc(i.name)}</th><td>${
+  (AREAS[i.id] || []).map(a => `<span class="area ${AREA_TAG[a][0]}">${AREA_TAG[a][1]}</span>`).join('')}</td></tr>`).join('');
+document.getElementById('btn-prep-print').addEventListener('click', () => window.print());
+
+const welcome = document.getElementById('welcome');
+const welSlides = [...welcome.querySelectorAll('.wel-slide')];
+const welDots = [...welcome.querySelectorAll('.wel-dots i')];
+const welPrev = document.getElementById('wel-prev'), welNext = document.getElementById('wel-next');
+const WEL_KEY = 'radar-boasvindas-v1';
+let welK = 0;
+function welShow(){
+  welSlides.forEach((s, i) => { s.hidden = i !== welK; });
+  welDots.forEach((d, i) => d.classList.toggle('on', i === welK));
+  document.getElementById('wel-step').textContent = `Passo ${welK + 1} de ${welSlides.length}`;
+  welPrev.hidden = welK === 0;
+  welNext.textContent = welK === welSlides.length - 1 ? 'Ver o que preparar' : 'Próximo';
+}
+function welOpen(){
+  welK = 0; welShow();
+  document.getElementById('wel-wheel').innerHTML = wheelSVG({mode: 'inicio'});
+  if(!welcome.open) welcome.showModal();
+  welNext.focus();
+}
+function welClose(){ try{ localStorage.setItem(WEL_KEY, '1'); }catch(e){} if(welcome.open) welcome.close(); }
+welNext.addEventListener('click', () => {
+  if(welK < welSlides.length - 1){ welK++; welShow(); welNext.focus(); }
+  else { welClose(); location.hash = 'preparar'; }
+});
+welPrev.addEventListener('click', () => { if(welK > 0){ welK--; welShow(); (welK === 0 ? welNext : welPrev).focus(); } });
+welcome.querySelector('[data-wel-close]').addEventListener('click', welClose);
+welcome.addEventListener('cancel', () => { try{ localStorage.setItem(WEL_KEY, '1'); }catch(e){} });
+welcome.addEventListener('click', e => { if(e.target === welcome) welClose(); });
+document.getElementById('btn-como').addEventListener('click', welOpen);
+(() => {
+  let seen = false; try{ seen = localStorage.getItem(WEL_KEY) === '1'; }catch(e){ seen = true; }
+  if(!seen && location.hash.slice(1) !== 'acervo') welOpen();
+})();
 
 /* ---------- acervo ---------- */
 let groups = [];

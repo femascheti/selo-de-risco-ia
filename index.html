@@ -18,6 +18,7 @@
       <a href="#acervo" data-view="acervo">Acervo de radares</a>
       <a href="#avaliar" data-view="avaliar">Avaliar uma plataforma</a>
     </div>
+    <button type="button" class="nav-help" id="btn-como">Como funciona</button>
   </div>
 </nav>
 
@@ -29,6 +30,7 @@
     <p class="eyebrow">Avaliação de riscos de plataformas educacionais com IA</p>
     <h1>Radar de Risco de IA</h1>
     <p class="lead">Ferramenta para gestores da rede analisarem uma plataforma de IA nova ou já em uso. A análise percorre 9 critérios, organizados em 3 categorias, e gera um radar circular que mostra o nível de risco de cada critério, além de um relatório que explica o motivo de cada classificação.</p>
+    <p class="prep-link">Primeira avaliação? Veja <a href="#preparar">o que preparar antes de começar</a>.</p>
   </div>
   <ol class="steps" aria-label="Como usar">
     <li><div><b>Consulte o <a href="#acervo">acervo de radares</a></b>Veja se a plataforma já tem radar e qual foi a última avaliação.</div></li>
@@ -60,6 +62,38 @@
 </section>
 </div>
 
+<div class="view" id="v-preparar" hidden>
+<section aria-labelledby="h-preparar">
+  <div class="sec-head">
+    <p class="eyebrow">Antes de começar</p>
+    <h2 id="h-preparar">O que preparar para avaliar uma plataforma</h2>
+    <p class="muted">A parte mais demorada não é preencher a ferramenta: é reunir as pessoas e as evidências. Use esta lista com o grupo de trabalho. A avaliação pode ser feita em mais de uma sessão.</p>
+  </div>
+  <div class="prep-grid">
+    <div class="prep-card"><h3><small>1</small>Reúna o grupo de trabalho</h3><ul class="chk">
+      <li><label><input type="checkbox"><span>Uma pessoa coordena e salva a avaliação no acervo.</span></label></li>
+      <li><label><input type="checkbox"><span>Representantes das áreas pedagógica, jurídica, de TI e de gestão.</span></label></li>
+      <li><label><input type="checkbox"><span>Um professor que use a plataforma, para os testes.</span></label></li></ul></div>
+    <div class="prep-card"><h3><small>2</small>Tenha os documentos em mãos</h3><ul class="chk">
+      <li><label><input type="checkbox"><span>Termos de uso e política de privacidade, com data e versão.</span></label></li>
+      <li><label><input type="checkbox"><span>Contrato ou proposta comercial, se houver.</span></label></li>
+      <li><label><input type="checkbox"><span>Um contato do fornecedor para pedidos por escrito (há modelo de ofício na ferramenta).</span></label></li></ul></div>
+    <div class="prep-card"><h3><small>3</small>Prepare os testes</h3><ul class="chk">
+      <li><label><input type="checkbox"><span>Contas fictícias de estudante e de professor, <b>sem dados reais</b>.</span></label></li>
+      <li><label><input type="checkbox"><span>Um jeito de guardar capturas de tela das respostas.</span></label></li>
+      <li><label><input type="checkbox"><span>Algumas perguntas de teste por componente (há roteiro em Qualidade).</span></label></li></ul></div>
+    <div class="prep-card"><h3><small>4</small>Combine como dividir</h3><ul class="chk">
+      <li><label><input type="checkbox"><span>Quem responde cada critério (veja a sugestão abaixo).</span></label></li>
+      <li><label><input type="checkbox"><span>Datas para cada área salvar sua parte com “Salvar e continuar depois”.</span></label></li>
+      <li><label><input type="checkbox"><span>Um encontro final do grupo para revisar e gerar o radar.</span></label></li></ul></div>
+    <div class="prep-card wide"><h3><small>Sugestão</small>Quais áreas olham cada critério</h3>
+      <table class="prep-areas" id="prep-areas"></table>
+      <p class="muted small">Sugestão de divisão. Ajuste à equipe disponível na sua rede.</p></div>
+  </div>
+  <div class="prep-actions"><a class="btn" href="#avaliar">Começar a avaliação</a><button type="button" class="btn ghost" id="btn-prep-print">Imprimir ou salvar em PDF</button></div>
+</section>
+</div>
+
 <div class="view" id="v-acervo" hidden>
 <section aria-labelledby="h-acervo">
   <div class="sec-head">
@@ -82,6 +116,7 @@
   <div class="sec-head">
     <h2 id="h-avaliar">Avaliar uma plataforma</h2>
     <p class="muted">Preencha a identificação e toque em cada setor do radar para avaliar o critério. O setor ganha a cor do risco escolhido.</p>
+    <p class="prep-link">Ainda não reuniu o grupo e os documentos? Veja <a href="#preparar">o que preparar antes de começar</a>.</p>
   </div>
   <form class="form" id="form" novalidate>
     <div class="fields">
@@ -151,6 +186,41 @@
       <button type="button" class="kit-x" id="kit-x" data-kit-close aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
     <div class="kit-body" id="kit-body"></div>
     <footer class="kit-f"><span class="rot-msg" id="kit-msg" role="status"></span><button type="button" class="btn ghost sm" data-kit-close>Fechar</button><button type="button" class="btn sm" id="kit-copy" data-kit-copy>Copiar</button></footer>
+  </div>
+</dialog>
+
+<dialog id="welcome" class="welcome" aria-labelledby="wel-t1">
+  <div class="wel-head"><span class="wel-step" id="wel-step">Passo 1 de 4</span><button type="button" class="wel-skip" data-wel-close>Pular apresentação</button></div>
+  <div class="wel-slide">
+    <h2 id="wel-t1">Boas-vindas ao Radar de Risco de IA</h2>
+    <p>O Radar ajuda a rede de ensino a avaliar os riscos de uma plataforma educacional com IA <b>antes de adotá-la ou de mantê-la</b> nas escolas.</p>
+    <p>Quem classifica é a rede. A ferramenta organiza as perguntas, as normas e as evidências; a decisão continua com vocês.</p>
+  </div>
+  <div class="wel-slide" hidden>
+    <h2>Quem participa</h2>
+    <p>A avaliação é feita por um <b>grupo de trabalho</b> da secretaria, com pessoas de diferentes áreas:</p>
+    <p class="area-tags"><span class="area a-ped">Pedagógica</span><span class="area a-jur">Jurídica</span><span class="area a-ti">TI</span><span class="area a-ges">Gestão</span></p>
+    <p>Cada área responde aos critérios que lhe cabem. Use <b>“Salvar e continuar depois”</b> para que outra pessoa continue de onde você parou.</p>
+  </div>
+  <div class="wel-slide" hidden>
+    <h2>Como funciona</h2>
+    <div class="wel-wheel" id="wel-wheel"></div>
+    <p><b>9 critérios em 3 eixos.</b> Para cada um, você lê a pergunta norteadora, consulta as sugestões de verificação e escolhe o nível de risco.</p>
+    <div class="wel-lv"><span style="background:var(--baixo);color:#fff">Baixo</span><span style="background:var(--moderado);color:#111">Moderado</span><span style="background:var(--alto);color:#fff">Alto</span><span style="background:var(--critico);color:#fff">Crítico</span></div>
+    <p>O pior nível define o radar. Um único <b>Risco Crítico</b> é eliminatório.</p>
+  </div>
+  <div class="wel-slide" hidden>
+    <h2>O que você recebe</h2>
+    <div class="wel-gets">
+      <div><b>Radar</b>O retrato dos riscos da plataforma, critério a critério.</div>
+      <div><b>Relatório</b>O nível, o motivo e a fonte de cada classificação, para subsidiar a decisão.</div>
+      <div><b>Acervo</b>As avaliações da rede guardadas com data, para acompanhar ao longo do tempo.</div>
+    </div>
+    <p>Antes de começar, vale reunir o grupo e alguns documentos. Preparamos uma lista curta.</p>
+  </div>
+  <div class="wel-foot">
+    <div class="wel-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="wel-btns"><button type="button" class="btn ghost" id="wel-prev" hidden>Voltar</button><button type="button" class="btn" id="wel-next">Próximo</button></div>
   </div>
 </dialog>
 

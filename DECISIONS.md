@@ -81,3 +81,11 @@
 - **Origem**: pedido explícito da usuária; implementação proposta pelo Claude.
 - **Verificação**: sintaxe JavaScript conferida; em Chromium local (1280 px), as dicas abrem no hover, fecham ao sair, inclusive após clique, e a roda mostra os três eixos com cores distintas.
 - **Reversão**: reverter este commit.
+
+## 2026-11-27: apresentação de boas-vindas e página "Antes de começar"
+
+- **Contexto**: a usuária pediu uma parte introdutória (onboarding). Ela aprovou no Claude um protótipo com duas partes: apresentação de boas-vindas e lista de preparação.
+- **Decisão**: (1) na primeira visita aparece uma janela (`<dialog id="welcome">`) com 4 passos: Boas-vindas, Quem participa (selos de área), Como funciona (roda, escala e regra do pior nível) e O que você recebe. Ela pode ser pulada e fecha com Esc. O último passo leva a `#preparar`. A janela não abre sozinha quando a página já começa em `#acervo`, para não atrapalhar quem recebeu um link do acervo. O botão "Como funciona", no menu, reabre a janela. A chave `radar-boasvindas-v1` no `localStorage` registra que a apresentação já foi vista. (2) Nova página `#preparar`, "Antes de começar", com 4 blocos de itens para marcar (grupo, documentos, testes, divisão), uma tabela de áreas por critério (`AREAS` em `app.js`), o botão "Começar a avaliação" e a opção de imprimir ou salvar em PDF. Há links para essa página no Início e em Avaliar.
+- **Origem**: pedido da usuária; textos redigidos pelo Claude e aprovados no protótipo. A divisão por área repete a sugestão da Entrega 4 e é apresentada como ajustável.
+- **Verificação**: Chromium local, 1280 px e 390 px; a janela abre na primeira visita, não reabre depois e leva a `#preparar`; nenhum erro de JavaScript.
+- **Reversão**: reverter este commit.
