@@ -97,3 +97,10 @@
 - **Origem**: pedido explícito da usuária no chat; o item (3) é uma correção do Claude que completa a troca de nome anterior.
 - **Verificação**: Chromium local; o botão continua oculto com 8 de 9, aparece com 9 de 9 e volta a se ocultar ao limpar o formulário; o relatório não mostra o indicador; nenhum erro de JavaScript.
 - **Reversão**: reverter este commit.
+
+## 2026-11-27: fonte por critério indicada como opcional
+
+- **Contexto**: a usuária pediu que o campo "Fonte ou evidência" de cada critério seja opcional.
+- **Decisão**: o campo já não era obrigatório na validação; o rótulo passou a dizer "(opcional)", como o campo "Registro do que encontrou".
+- **Origem**: pedido explícito da usuária no chat.
+- **Reversão**: reverter este commit.

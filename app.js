@@ -805,7 +805,7 @@ document.getElementById('items').innerHTML = WHEEL_ITEMS.map((i, n) => `<fieldse
       <span class="rc-txt ${txt?'':'tbd'}">${esc(txt || 'Descrição do nível a definir na rubrica.')}</span></span></span></label>`; }).join('')}</div>
   <div class="if-extra">
     <div class="field"><label for="mt-${i.id}">Registro do que encontrou (opcional)</label><textarea id="mt-${i.id}" rows="3" placeholder="Ex.: No teste com conta fictícia, observamos que…"></textarea></div>
-    <div class="field"><label for="ft-${i.id}">Fonte ou evidência (trecho dos termos, link, teste)</label><textarea id="ft-${i.id}" rows="3" placeholder="Ex.: Link dos termos de uso, data da consulta e trecho que sustenta a avaliação."></textarea></div>
+    <div class="field"><label for="ft-${i.id}">Fonte ou evidência (trecho dos termos, link, teste) (opcional)</label><textarea id="ft-${i.id}" rows="3" placeholder="Ex.: Link dos termos de uso, data da consulta e trecho que sustenta a avaliação."></textarea></div>
   </div>
   <span class="err" id="er-${i.id}"></span>
 </fieldset>`).join('');
