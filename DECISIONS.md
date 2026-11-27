@@ -89,3 +89,11 @@
 - **Origem**: pedido da usuária; textos redigidos pelo Claude e aprovados no protótipo. A divisão por área repete a sugestão da Entrega 4 e é apresentada como ajustável.
 - **Verificação**: Chromium local, 1280 px e 390 px; a janela abre na primeira visita, não reabre depois e leva a `#preparar`; nenhum erro de JavaScript.
 - **Reversão**: reverter este commit.
+
+## 2026-11-27: retirada do indicador de evidência e botão de gerar só ao final
+
+- **Contexto**: a usuária pediu excluir o indicador "Evidência de impacto na aprendizagem" e impedir que o botão "Gerar radar e relatório" apareça antes de os 9 critérios serem avaliados.
+- **Decisão**: (1) foram removidos do formulário, do radar, do relatório na tela e do relatório baixado a seção do indicador, os cartões de nível, o campo de fonte e o selo "Evidência de impacto". Novas avaliações e rascunhos deixam de gravar `evidencia`. Registros antigos que tenham esse campo continuam no acervo, mas ele não é mais exibido. (2) O botão "Gerar radar e relatório" fica oculto até os 9 critérios terem nível. Enquanto isso, aparece a frase "Avalie os 9 critérios para gerar o radar e o relatório." (3) O cabeçalho do relatório baixado ainda dizia "SELO DE RISCO DE IA" e passou a "RADAR DE RISCO DE IA".
+- **Origem**: pedido explícito da usuária no chat; o item (3) é uma correção do Claude que completa a troca de nome anterior.
+- **Verificação**: Chromium local; o botão continua oculto com 8 de 9, aparece com 9 de 9 e volta a se ocultar ao limpar o formulário; o relatório não mostra o indicador; nenhum erro de JavaScript.
+- **Reversão**: reverter este commit.

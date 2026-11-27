@@ -704,7 +704,6 @@ function labelHTML(ev, {pending=false} = {}){
     <div class="l-info"><div class="l-name">${esc(ev.nome)}</div>${ev.versao ? `<div class="l-sub">${esc(ev.versao)}</div>` : ''}
     <div class="l-status">${esc(status)}</div>
     ${ev.preliminar && n ? '<span class="stamp">Preliminar · a validar pela rede</span>' : ''}
-    ${evidHTML(ev)}
     <div class="l-sub">${n ? 'Avaliada em ' + fmtDate(ev.data) : ''}</div></div>
   </div>`;
 }
@@ -726,7 +725,6 @@ function reportHTML(ev){
     <div class="verdict"><b>${esc(v.title)}</b><span>${esc(v.text)}</span></div>
     <div class="tbl"><table><thead><tr><th>Critério</th><th>Nível</th><th>Motivo da classificação</th><th>Fonte ou evidência</th></tr></thead><tbody>${rows}</tbody></table></div>
     ${ev.obs ? `<p><b>Observações:</b> ${esc(ev.obs)}</p>` : ''}
-    <div class="evid-rep"><b>Evidência de impacto na aprendizagem</b> <span class="muted">(indicador à parte, não altera o radar)</span><br>${esc(EVNAME[(ev.evidencia||{}).nivel] || 'Não verificado')}${(ev.evidencia && ev.evidencia.fonte) ? ` · <span class="muted">${esc(ev.evidencia.fonte)}</span>` : ''}</div>
     <p class="muted">Este relatório registra a análise da rede. Não é certificação. A decisão de uso cabe à rede, e a classificação deve ser revista quando os termos ou as funções da plataforma mudarem.</p>`;
 }
 function reportFile(ev){
@@ -735,35 +733,19 @@ function reportFile(ev){
     return `<tr><td><b>${esc(i.name)}</b><br><small>${esc(CATNAME[i.cat])}</small><br><small><i>${esc(i.q)}</i></small></td><td>${esc(LV[lv].name)}</td><td>${esc(levelText(ev, i.id))}</td><td>${esc((ev.fontes&&ev.fontes[i.id])||'—')}</td></tr>`; }).join('');
   return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Relatório · ${esc(ev.nome)}</title>
 <style>body{font-family:Arial,sans-serif;max-width:900px;margin:32px auto;padding:0 16px;color:#111;line-height:1.45}h1{margin:0 0 4px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid #999;padding:8px;text-align:left;vertical-align:top}th{background:#eee}.v{border:2px solid #111;padding:10px 12px;margin:16px 0}</style></head><body>
-<p>SELO DE RISCO DE IA · [Nome da rede] · Uso interno</p><h1>${esc(ev.nome)}</h1>
+<p>RADAR DE RISCO DE IA · [Nome da rede] · Uso interno</p><h1>${esc(ev.nome)}</h1>
 <p>${ev.versao?esc(ev.versao)+' · ':''}Avaliada em ${fmtDate(ev.data)}${ev.avaliador?' · '+esc(ev.avaliador):''}</p>
 ${ev.preliminar?'<p><b>Análise preliminar:</b> baseada só em documentos públicos, sem uso da plataforma e antes da rubrica. A rede deve validar cada classificação.</p>':''}
 <div class="v"><b>Radar: ${esc(v.title)}</b><br>${esc(v.text)}</div>
 <p>Regra: o radar assume o pior nível entre os critérios avaliados. O nível Crítico é eliminatório.</p>
 <table><thead><tr><th>Critério</th><th>Nível</th><th>Motivo da classificação</th><th>Fonte ou evidência</th></tr></thead><tbody>${rows}</tbody></table>
 ${ev.obs?`<p><b>Observações:</b> ${esc(ev.obs)}</p>`:''}
-<p><b>Evidência de impacto na aprendizagem</b> (indicador à parte, não altera o radar): ${esc(EVNAME[(ev.evidencia||{}).nivel] || 'Não verificado')}${(ev.evidencia && ev.evidencia.fonte) ? ' · '+esc(ev.evidencia.fonte) : ''}</p>
 <p><small>Este relatório registra a análise da rede. Não é certificação. A decisão de uso cabe à rede, e a classificação deve ser revista quando os termos ou as funções da plataforma mudarem.</small></p></body></html>`;
 }
 
 
-/* ---------- indicador de evidência de impacto (fora do cálculo do risco) ---------- */
-const EVID = [
-  {id:'sem', name:'Sem evidência', short:'Sem evidência', d:'O fornecedor não apresenta estudos sobre efeitos na aprendizagem; há apenas descrição do produto, depoimentos ou material de divulgação.'},
-  {id:'descritiva', name:'Evidência descritiva', short:'Descritiva', d:'Há relatos de uso, estudos de caso, pesquisas de satisfação ou dados de uso, mas eles não medem a aprendizagem ou não comparam com quem não usou.'},
-  {id:'correlacional', name:'Evidência correlacional', short:'Correlacional', d:'Há estudos que medem a aprendizagem e mostram associação entre o uso e os resultados, mas sem um grupo de comparação equivalente (por exemplo, "quem usou mais teve notas maiores").'},
-  {id:'experimental', name:'Evidência experimental', short:'Experimental', d:'Há estudo com grupo de comparação, formado por sorteio (estudo randomizado) ou por desenho quase-experimental cuidadoso, que estima o efeito do uso sobre a aprendizagem.'}
-];
-const EVNAME = Object.fromEntries(EVID.map(x => [x.id, x.name]));
-function evidHTML(ev){
-  const e = ev.evidencia || {};
-  if(!e.nivel || e.nivel === 'nv') return '';
-  const x = EVID.find(y => y.id === e.nivel); return x ? `<span class="evid-tag">Evidência de impacto: ${esc(x.short.toLowerCase())}</span>` : '';
-}
 
 /* ---------- render estático ---------- */
-document.querySelector('.evid-cards').innerHTML = EVID.map(x => `<label class="evcard"><input type="radio" name="evid" value="${x.id}"><span class="rc-box" aria-hidden="true"></span><span><b>${esc(x.name)}</b><span class="muted">${esc(x.d)}</span></span></label>`).join('')
-  + `<label class="evcard"><input type="radio" name="evid" value="nv" checked><span class="rc-box" aria-hidden="true"></span><span><b>Não verificado</b><span class="muted">A rede ainda não procurou ou não recebeu estudos.</span></span></label>`;
 document.getElementById('scale').innerHTML = LEVELS.map(l =>
   `<div class="lvl ${l.id==='critico'?'crit':''}"><div class="bar" style="background:${l.color}"></div><strong>Risco ${esc(l.name)}</strong><span>${esc(l.id==='critico' ? 'Eliminatório: a ferramenta não deve ser usada com os estudantes.' : l.note)}</span></div>`).join('');
 
@@ -834,8 +816,7 @@ const form = document.getElementById('form');
 function readForm(){
   const ev = {nome:document.getElementById('f-nome').value.trim(), versao:document.getElementById('f-versao').value.trim(),
     avaliador:document.getElementById('f-avaliador').value.trim(), data:document.getElementById('f-data').value || today(),
-    obs:document.getElementById('f-obs').value.trim(), niveis:{}, motivos:{}, fontes:{}, rubrica:{}, checks:{},
-    evidencia:{nivel: (form.querySelector('input[name="evid"]:checked') || {}).value || 'nv', fonte: document.getElementById('ev-fonte').value.trim()}};
+    obs:document.getElementById('f-obs').value.trim(), niveis:{}, motivos:{}, fontes:{}, rubrica:{}, checks:{}};
   ITEMS.forEach(i => {
     const c = form.querySelector(`input[name="lv-${i.id}"]:checked`);
     ev.niveis[i.id] = c ? c.value : 'nv';
@@ -852,9 +833,6 @@ function fillForm(ev){
   document.getElementById('f-avaliador').value = ev.avaliador || '';
   document.getElementById('f-data').value = today();
   document.getElementById('f-obs').value = ev.obs || '';
-  const evd = ev.evidencia || {};
-  form.querySelectorAll('input[name="evid"]').forEach(x => { x.checked = x.value === (evd.nivel || 'nv'); });
-  document.getElementById('ev-fonte').value = evd.fonte || '';
   ITEMS.forEach(i => {
     const lv = (ev.niveis && ev.niveis[i.id]) || 'nv';
     form.querySelectorAll(`input[name="lv-${i.id}"]`).forEach(x => { x.checked = false; });
@@ -876,6 +854,9 @@ function renderAvaliarWheel(){
   box.innerHTML = wheelSVG({niveis, mode: 'avaliar', name: document.getElementById('f-nome').value.trim() || 'Plataforma', selected: avalSel, interactive: true});
   const n = Object.keys(niveis).length;
   document.getElementById('aval-prog').textContent = `${n} de ${ITEMS.length} critérios avaliados`;
+  const done = n === ITEMS.length;
+  document.getElementById('btn-gerar').hidden = !done;
+  document.getElementById('gerar-hint').hidden = done;
 }
 function showItem(id, {focus = false} = {}){
   avalSel = id;
@@ -1017,8 +998,6 @@ function mergeWithLatest(ev){
   });
   ITEMS.forEach(i => { if(!(i.id in out.niveis)) out.niveis[i.id] = 'nv'; });
   ['nome','versao','obs'].forEach(k => { if(ev[k]) out[k] = ev[k]; });
-  const be = (draftBase && draftBase.evidencia) || {nivel:'nv', fonte:''};
-  if(ev.evidencia && (ev.evidencia.nivel !== (be.nivel||'nv') || ev.evidencia.fonte !== (be.fonte||''))) out.evidencia = ev.evidencia;
   const quem = new Set(Array.isArray(out.participantes) ? out.participantes : []);
   if(ev.avaliador) quem.add(ev.avaliador);
   out.participantes = [...quem];
@@ -1088,7 +1067,7 @@ form.addEventListener('submit', e => {
   let ev = readForm(); let ok = true;
   if(draftId){
     const m = mergeWithLatest(ev);
-    ev = Object.assign(ev, {nome: m.nome || ev.nome, versao: m.versao || ev.versao, obs: m.obs || ev.obs, evidencia: m.evidencia || ev.evidencia, niveis: m.niveis, motivos: m.motivos, fontes: m.fontes, rubrica: m.rubrica, checks: m.checks,
+    ev = Object.assign(ev, {nome: m.nome || ev.nome, versao: m.versao || ev.versao, obs: m.obs || ev.obs, niveis: m.niveis, motivos: m.motivos, fontes: m.fontes, rubrica: m.rubrica, checks: m.checks,
       porCriterio: m.porCriterio, participantes: m.participantes, avaliador: (m.participantes || []).join(', ') || ev.avaliador});
     const me = document.getElementById('f-avaliador').value;
     fillForm(ev); document.getElementById('f-avaliador').value = me;
@@ -1131,7 +1110,6 @@ function showResult(ev, {saved, history=[], where='avaliar'} = {}){
       const body = {nome:ev.nome, versao:ev.versao, avaliador:ev.avaliador, data:ev.data, obs:ev.obs, ferramenta:ev.ferramenta,
         status:'avaliada', niveis:ev.niveis, motivos:ev.motivos, fontes:ev.fontes, rubrica:ev.rubrica, salvoEm:new Date().toISOString()};
       if(ev.porCriterio) body.porCriterio = ev.porCriterio;
-      if(ev.evidencia) body.evidencia = ev.evidencia;
       if(ev.participantes) body.participantes = ev.participantes;
       await db.collection('avaliacoes').doc(id).set(body);
       if(ev._draftId){

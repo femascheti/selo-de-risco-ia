@@ -141,28 +141,9 @@
       </div>
     </div>
     <div class="field"><label for="f-obs">Observações gerais</label><textarea id="f-obs" rows="3" placeholder="Ex.: Avaliação das funções usadas no 9º ano, com conta de teste."></textarea></div>
-    <section class="evid" id="evid" aria-labelledby="h-evid">
-      <p class="if-label">Indicador à parte · não altera o radar de risco</p>
-      <h3 id="h-evid">Evidência de impacto na aprendizagem</h3>
-      <p class="muted">Registre se há estudos que mostram que a plataforma melhora a aprendizagem. Este indicador aparece ao lado do radar e no relatório, mas não muda o nível de risco.</p>
-      <details class="rot evid-guia"><summary><span class="rot-head" style="font-size:18px">Como reconhecer cada nível</span><span class="rot-open" aria-hidden="true"></span></summary>
-        <div class="evid-guia-body">
-          <p>Peça ao fornecedor os estudos que sustentam o que ele afirma sobre aprendizagem e faça estas perguntas:</p>
-          <ol>
-            <li><b>O estudo mede aprendizagem?</b> Provas, avaliações ou produções dos estudantes contam. Tempo de uso, satisfação ou número de acessos não medem aprendizagem.</li>
-            <li><b>Há grupo de comparação?</b> Sem comparar com estudantes que não usaram a plataforma, não dá para saber se a melhora veio dela.</li>
-            <li><b>Como os grupos foram formados?</b> Por sorteio (randomizado) é o mais forte. Grupos escolhidos por adesão ou interesse tendem a superestimar o efeito.</li>
-            <li><b>Quem fez o estudo?</b> Pesquisadores independentes do fornecedor e publicação com método descrito dão mais confiança.</li>
-            <li><b>Vale para a nossa rede?</b> Verifique etapa, tipo de rede, contexto e a versão da plataforma estudada. Um estudo antigo ou feito em outro contexto vale menos para a decisão atual.</li>
-          </ol>
-          <p class="muted">Classifique pelo estudo mais forte disponível e anote no campo de fonte as ressalvas (versão, contexto, data).</p>
-        </div>
-      </details>
-      <div class="rcards evid-cards"></div>
-      <div class="field"><label for="ev-fonte">Estudo ou fonte (com data e contexto)</label><textarea id="ev-fonte" rows="2" placeholder="Ex.: Título do estudo, link, data e público participante."></textarea></div>
-    </section>
     <div class="form-actions">
-      <button class="btn" type="submit">Gerar radar e relatório</button>
+      <button class="btn" type="submit" id="btn-gerar" hidden>Gerar radar e relatório</button>
+      <span class="muted gerar-hint" id="gerar-hint">Avalie os 9 critérios para gerar o radar e o relatório.</span>
       <button class="btn ghost" type="button" id="btn-rascunho">Salvar e continuar depois</button>
       <button class="btn ghost" type="button" id="btn-limpar">Limpar formulário</button>
       <span class="err" id="form-err" role="alert"></span>

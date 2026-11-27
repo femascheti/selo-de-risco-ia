@@ -270,25 +270,6 @@ th{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute
 .rot{border:1px solid var(--accent);border-radius:10px;background:var(--surface)}
 .rot summary{padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:3px;list-style:none}
 .rot summary::-webkit-details-marker{display:none}
-.evid{margin-top:26px;border:2px dashed var(--accent);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
-.evid h3{margin:0;font-size:22px;color:var(--head)}
-.evid-guia .rot-open::before{content:"Ver orientação"}
-.evid-guia[open] .rot-open::before{content:"Ocultar orientação"}
-.evid .muted{margin:0}
-.evid-guia-body{padding:0 16px 14px;font-size:15px}
-.evid-guia-body ol{padding-left:20px;margin:6px 0}
-.evid-guia-body li{margin-bottom:6px}
-.evid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.evcard{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px;cursor:pointer;position:relative}
-.evcard input{position:absolute;opacity:0;width:1px;height:1px}
-.evcard b{display:block;margin-bottom:3px}
-.evcard .muted{font-size:14px}
-.evcard:has(input:checked){border:2px solid var(--accent);background:var(--soft)}
-.evcard:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px}
-.evcard .rc-box{flex:none;width:20px;height:20px;border:2px solid var(--accent);border-radius:4px;margin-top:2px}
-.evcard input:checked + .rc-box{background:var(--accent);box-shadow:inset 0 0 0 3px var(--surface)}
-.evid-tag{display:inline-block;margin-top:6px;padding:4px 10px;border:1.5px solid var(--accent);border-radius:999px;font-size:13px;font-weight:700;color:var(--accent)}
-.evid-rep{margin:12px 0;padding:10px 12px;border-left:4px solid var(--accent);background:var(--soft)}
 .rot-open{align-self:flex-start;margin-top:8px;display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border:2px solid var(--accent);border-radius:8px;font-weight:700;font-size:15px;color:var(--accent)}
 .rot-open::before{content:"Ver sugestões"}
 .rot-open::after{content:"▾"}
