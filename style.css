@@ -219,7 +219,7 @@ th{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute
 :root[data-theme="dark"]{--wheel-cat:#2C6496;--wheel-empty:#22384D;--wheel-ink:#BDDCF1}
 .wheel{display:block;width:100%;height:auto}
 .wheel .w-shape{stroke:var(--surface);stroke-width:1.5}
-.w-cat{font:700 12px var(--body);fill:#FFFFFF;letter-spacing:.01em}
+.w-cat{font:700 14px var(--body);fill:var(--ink);letter-spacing:.01em}
 .w-lbl{font:600 11.5px var(--body)}
 .w-q{font:800 56px var(--display)}
 .w-name{font:800 18px var(--display)}
@@ -355,3 +355,17 @@ th{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute
   .base-wrap{margin-left:0}
   .base-pop{left:0;right:auto}
 }
+
+/* Orientações do formulário e identificação discreta dos eixos. */
+:root{--axis-integridade:#DBE8F2;--axis-protecao:#E5E0ED;--axis-dados:#DAEAE8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--axis-integridade:#263F54;--axis-protecao:#3B344B;--axis-dados:#264541}}
+:root[data-theme="dark"]{--axis-integridade:#263F54;--axis-protecao:#3B344B;--axis-dados:#264541}
+.field-heading{display:flex;align-items:center;gap:6px;min-height:28px}
+.field-help{position:relative;margin-left:auto}
+.field-help summary{display:grid;place-items:center;width:24px;height:24px;cursor:pointer;color:var(--accent);list-style:none}
+.field-help summary::-webkit-details-marker{display:none}
+.field-help summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.field-help p{position:absolute;z-index:10;top:100%;right:0;width:min(280px,75vw);padding:12px;margin:6px 0;background:var(--surface);color:var(--ink);border:1px solid var(--muted);border-radius:6px;box-shadow:0 4px 16px #0002;font-size:15px;font-weight:400}
+.field input::placeholder,.field textarea::placeholder{color:color-mix(in srgb,var(--muted) 70%,var(--bg));opacity:1}
+
+.field-help summary svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}

@@ -43,9 +43,8 @@
     <p class="muted">Cada critério recebe um nível de risco. O selo geral assume o pior nível entre os critérios.</p>
   </div>
   <div class="scale" id="scale"></div>
-  <div class="rule" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+  <div class="rule" style="grid-template-columns:1fr">
     <div><b>O pior nível define o selo</b><span class="muted">Um único critério em Risco Alto torna a plataforma Risco Alto.</span></div>
-    <div><b>Todos os critérios são obrigatórios</b><span class="muted">Quem avalia escolhe um nível de risco para cada um dos 9 critérios.</span></div>
   </div>
 </section>
 
@@ -86,10 +85,10 @@
   </div>
   <form class="form" id="form" novalidate>
     <div class="fields">
-      <div class="field"><label for="f-nome">Plataforma</label><input id="f-nome" required autocomplete="off"></div>
-      <div class="field"><label for="f-versao">Versão ou plano</label><input id="f-versao" autocomplete="off"></div>
-      <div class="field"><label for="f-avaliador">Quem está respondendo</label><input id="f-avaliador" autocomplete="off"></div>
-      <div class="field"><label for="f-data">Data da avaliação</label><input id="f-data" type="date"></div>
+      <div class="field"><div class="field-heading"><label for="f-nome">Plataforma</label><details class="field-help"><summary aria-label="Informações sobre plataforma"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r="0.9" fill="currentColor"/></svg></summary><p id="help-nome">Ferramenta digital que utiliza inteligência artificial em alguma função, como gerar conteúdo, recomendar atividades ou analisar respostas. Avalie a função utilizada pela rede.</p></details></div><input aria-describedby="help-nome" placeholder="GatomIA" id="f-nome" required autocomplete="off"></div>
+      <div class="field"><div class="field-heading"><label for="f-versao">Versão ou plano</label><details class="field-help"><summary aria-label="Informações sobre versão ou plano"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r="0.9" fill="currentColor"/></svg></summary><p id="help-versao">Informe a versão ou o plano de acesso avaliado. Recursos e condições de uso podem variar entre planos gratuitos, pagos ou institucionais.</p></details></div><input aria-describedby="help-versao" placeholder="Versão 0.2 - Plano gratuito" id="f-versao" autocomplete="off"></div>
+      <div class="field"><div class="field-heading"><label for="f-avaliador">Quem está respondendo</label></div><input id="f-avaliador" placeholder="Maria e João" autocomplete="off"></div>
+      <div class="field"><div class="field-heading"><label for="f-data">Data da avaliação</label></div><input id="f-data" type="date"></div>
     </div>
     <p class="verif-geral"><b>Antes de começar:</b> em todos os testes, use contas fictícias, sem dados reais de estudantes. Registre a data, a versão da ferramenta e capturas de tela de cada verificação.</p>
     <div class="draft-banner" id="draft-banner" hidden></div>
@@ -106,7 +105,7 @@
         </div>
       </div>
     </div>
-    <div class="field"><label for="f-obs">Observações gerais</label><textarea id="f-obs" rows="3"></textarea></div>
+    <div class="field"><label for="f-obs">Observações gerais</label><textarea id="f-obs" rows="3" placeholder="Ex.: Avaliação das funções usadas no 9º ano, com conta de teste."></textarea></div>
     <section class="evid" id="evid" aria-labelledby="h-evid">
       <p class="if-label">Indicador à parte · não altera o selo de risco</p>
       <h3 id="h-evid">Evidência de impacto na aprendizagem</h3>
@@ -125,7 +124,7 @@
         </div>
       </details>
       <div class="rcards evid-cards"></div>
-      <div class="field"><label for="ev-fonte">Estudo ou fonte (com data e contexto)</label><textarea id="ev-fonte" rows="2"></textarea></div>
+      <div class="field"><label for="ev-fonte">Estudo ou fonte (com data e contexto)</label><textarea id="ev-fonte" rows="2" placeholder="Ex.: Título do estudo, link, data e público participante."></textarea></div>
     </section>
     <div class="form-actions">
       <button class="btn" type="submit">Gerar selo e relatório</button>

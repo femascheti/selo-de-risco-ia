@@ -653,11 +653,11 @@ function wrapName(name, max){
 let WHEEL_N = 0;
 function wheelSVG({niveis = {}, mode = 'selo', name = '', selected = null, interactive = false} = {}){
   const uid = 'w' + (++WHEEL_N);
-  const GAP_CAT = 3, GAP_IT = 1.2, R0 = 76, RC0 = 82, RC1 = 112, RI0 = 116, RI1 = 212;
+  const GAP_CAT = 1.2, GAP_IT = 1.2, R0 = 76, RC0 = 218, RC1 = 250, RI0 = 82, RI1 = 212;
   let out = '';
   CAT_ORDER.forEach((cid, ci) => {
     const a0 = ci * 120 - 60 + GAP_CAT / 2, a1 = (ci + 1) * 120 - 60 - GAP_CAT / 2;
-    out += `<path d="${arcPath(RC0, RC1, a0, a1)}" fill="var(--wheel-cat)"/>`;
+    out += `<path d="${arcPath(RC0, RC1, a0, a1)}" fill="var(--axis-${cid})"/>`;
     const midA = ((a0 + a1) / 2) % 360, low = midA > 90 && midA < 270;
     out += `<path id="${uid}-c${ci}" d="${textArc((RC0 + RC1) / 2 + (low ? 4 : -4), a0, a1)}" fill="none"/>`;
     out += `<text class="w-cat"><textPath href="#${uid}-c${ci}" startOffset="50%" text-anchor="middle">${esc(CATNAME[cid])}</textPath></text>`;
@@ -691,7 +691,7 @@ function wheelSVG({niveis = {}, mode = 'selo', name = '', selected = null, inter
     center += `<text class="w-name" text-anchor="middle" fill="${ink}">${lines.map((l, n) => `<tspan x="0" y="${(L ? top : 18) + n * 18}">${esc(l)}</tspan>`).join('')}</text>`;
     if(L) center += `<text class="w-lv" x="0" y="${(top) + lines.length * 18 + 4}" text-anchor="middle" fill="${ink}">${esc('Risco ' + L.name)}</text>`;
   }
-  return `<svg class="wheel" viewBox="-216 -216 432 432" role="group" aria-label="Selo de risco de IA${name ? ' de ' + esc(name) : ''}">${out}${center}</svg>`;
+  return `<svg class="wheel" viewBox="-254 -254 508 508" role="group" aria-label="Selo de risco de IA${name ? ' de ' + esc(name) : ''}">${out}${center}</svg>`;
 }
 function labelHTML(ev, {pending=false} = {}){
   const s = summarize(ev.niveis);
@@ -822,8 +822,8 @@ document.getElementById('items').innerHTML = WHEEL_ITEMS.map((i, n) => `<fieldse
       <span class="rc-body"><b>${'Risco ' + esc(l.name)}${l.id==='critico'?' · eliminatório':''}</b>
       <span class="rc-txt ${txt?'':'tbd'}">${esc(txt || 'Descrição do nível a definir na rubrica.')}</span></span></span></label>`; }).join('')}</div>
   <div class="if-extra">
-    <div class="field"><label for="mt-${i.id}">Registro do que encontrou (opcional)</label><textarea id="mt-${i.id}" rows="3"></textarea></div>
-    <div class="field"><label for="ft-${i.id}">Fonte ou evidência (trecho dos termos, link, teste)</label><textarea id="ft-${i.id}" rows="3"></textarea></div>
+    <div class="field"><label for="mt-${i.id}">Registro do que encontrou (opcional)</label><textarea id="mt-${i.id}" rows="3" placeholder="Ex.: No teste com conta fictícia, observamos que…"></textarea></div>
+    <div class="field"><label for="ft-${i.id}">Fonte ou evidência (trecho dos termos, link, teste)</label><textarea id="ft-${i.id}" rows="3" placeholder="Ex.: Link dos termos de uso, data da consulta e trecho que sustenta a avaliação."></textarea></div>
   </div>
   <span class="err" id="er-${i.id}"></span>
 </fieldset>`).join('');
@@ -959,7 +959,20 @@ document.addEventListener('click', async e => {
   if(cp){
     const src = document.getElementById('kit-copy-src'), msg = document.getElementById('kit-msg');
     const txt = src.tagName === 'TEXTAREA' ? src.value : src.innerText;
-    try{ await navigator.clipboard.writeText(txt); msg.textContent = 'Texto copiado. Cole no e-mail ou no documento.'; }
+    try{
+      let formatted = false;
+      if(src.tagName !== 'TEXTAREA' && navigator.clipboard?.write && typeof ClipboardItem !== 'undefined'){
+        try{
+          await navigator.clipboard.write([new ClipboardItem({
+            'text/html': new Blob([src.innerHTML], {type:'text/html'}),
+            'text/plain': new Blob([txt], {type:'text/plain'})
+          })]);
+          formatted = true;
+        }catch(err){ /* Se HTML não estiver disponível, tentar texto simples. */ }
+      }
+      if(!formatted) await navigator.clipboard.writeText(txt);
+      msg.textContent = formatted ? 'Roteiro copiado com títulos, listas e destaques. A formatação depende do aplicativo em que você colar.' : 'Texto copiado sem formatação. Cole no e-mail ou no documento.';
+    }
     catch(err){ if(src.tagName === 'TEXTAREA'){ src.focus(); src.select(); } msg.textContent = 'Não foi possível copiar automaticamente. Selecione o texto e use Ctrl+C (ou Cmd+C).'; }
     return;
   }
