@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Selo de Risco de IA</title>
+<title>Radar de Risco de IA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
@@ -15,7 +15,7 @@
     <a class="nav-brand" href="#inicio"><span class="logo-plate"><img src="logos/logo-observatorio.png" alt="Observatório Brasileiro da Inteligência Artificial na Educação" width="694" height="156"></span></a>
     <div class="nav-links">
       <a href="#inicio" data-view="inicio">Início</a>
-      <a href="#acervo" data-view="acervo">Acervo de selos</a>
+      <a href="#acervo" data-view="acervo">Acervo de radares</a>
       <a href="#avaliar" data-view="avaliar">Avaliar uma plataforma</a>
     </div>
   </div>
@@ -26,32 +26,32 @@
 <div class="view" id="v-inicio">
 <header class="top">
   <div class="intro">
-    <p class="eyebrow">Matriz de riscos de plataformas educacionais com IA</p>
-    <h1>Selo de Risco de IA</h1>
-    <p class="lead">Ferramenta para gestores da rede analisarem uma plataforma de IA nova ou já em uso. A análise percorre 9 critérios, organizados em 3 categorias, e gera um selo circular que mostra o nível de risco de cada critério, além de um relatório que explica o motivo de cada classificação.</p>
+    <p class="eyebrow">Avaliação de riscos de plataformas educacionais com IA</p>
+    <h1>Radar de Risco de IA</h1>
+    <p class="lead">Ferramenta para gestores da rede analisarem uma plataforma de IA nova ou já em uso. A análise percorre 9 critérios, organizados em 3 categorias, e gera um radar circular que mostra o nível de risco de cada critério, além de um relatório que explica o motivo de cada classificação.</p>
   </div>
   <ol class="steps" aria-label="Como usar">
-    <li><div><b>Consulte o <a href="#acervo">acervo de selos</a></b>Veja se a plataforma já tem selo e qual foi a última avaliação.</div></li>
+    <li><div><b>Consulte o <a href="#acervo">acervo de radares</a></b>Veja se a plataforma já tem radar e qual foi a última avaliação.</div></li>
     <li><div><b><a href="#avaliar">Avalie</a> os 9 critérios</b>Leia cada pergunta norteadora e escolha, na rubrica, o nível de risco que melhor descreve a plataforma.</div></li>
-    <li><div><b>Gere o selo e o relatório</b>Salve no acervo para que outros gestores consultem e baixe o relatório para subsidiar a decisão.</div></li>
+    <li><div><b>Gere o radar e o relatório</b>Salve no acervo para que outros gestores consultem e baixe o relatório para subsidiar a decisão.</div></li>
   </ol>
 </header>
 
 <section aria-labelledby="h-escala">
   <div class="sec-head">
     <h2 id="h-escala">Escala de risco</h2>
-    <p class="muted">Cada critério recebe um nível de risco. O selo geral assume o pior nível entre os critérios.</p>
+    <p class="muted">Cada critério recebe um nível de risco. O radar geral assume o pior nível entre os critérios.</p>
   </div>
   <div class="scale" id="scale"></div>
   <div class="rule" style="grid-template-columns:1fr">
-    <div><b>O pior nível define o selo</b><span class="muted">Um único critério em Risco Alto torna a plataforma Risco Alto.</span></div>
+    <div><b>O pior nível define o radar</b><span class="muted">Um único critério em Risco Alto torna a plataforma Risco Alto.</span></div>
   </div>
 </section>
 
 <section aria-labelledby="h-crit">
   <div class="sec-head wide">
     <h2 id="h-crit">Os 9 critérios</h2>
-    <p class="muted">O selo é um círculo com três categorias, cada uma com três critérios. Toque em um setor para ver a pergunta norteadora e a descrição.</p>
+    <p class="muted">O radar é um círculo com três categorias, cada uma com três critérios. Toque em um setor para ver a pergunta norteadora e a descrição.</p>
   </div>
   <div class="wheel-intro">
     <div class="wheel-box" id="wheel-inicio"></div>
@@ -63,16 +63,16 @@
 <div class="view" id="v-acervo" hidden>
 <section aria-labelledby="h-acervo">
   <div class="sec-head">
-    <h2 id="h-acervo">Acervo de selos</h2>
-    <p class="muted">Plataformas registradas pela rede. As avaliações ficam guardadas com data, o que permite acompanhar se cada plataforma está se adequando ao ECA Digital. Toque em um selo para ver o relatório ou avaliar novamente.</p>
-    <p class="legend-nv"><i aria-hidden="true"></i>Setor cinza: critério ainda sem classificação. O centro só recebe a cor do selo quando os 9 critérios forem avaliados ou quando houver um Risco Crítico.</p>
+    <h2 id="h-acervo">Acervo de radares</h2>
+    <p class="muted">Plataformas registradas pela rede. As avaliações ficam guardadas com data, o que permite acompanhar se cada plataforma está se adequando ao ECA Digital. Toque em um radar para ver o relatório ou avaliar novamente.</p>
+    <p class="legend-nv"><i aria-hidden="true"></i>Setor na cor do eixo, sem cor de risco: critério ainda sem classificação. O centro só recebe a cor do radar quando os 9 critérios forem avaliados ou quando houver um Risco Crítico.</p>
   </div>
   <p class="status" id="acervo-status" role="status">Carregando o acervo…</p>
   <div id="rascunhos"></div>
   <div class="labels" id="acervo"></div>
 </section>
-<section class="res" id="res-acervo" aria-label="Selo e relatório" hidden>
-  <div class="sec-head"><h2>Selo e relatório</h2></div>
+<section class="res" id="res-acervo" aria-label="Radar e relatório" hidden>
+  <div class="sec-head"><h2>Radar e relatório</h2></div>
   <div class="result"><div class="lab-wrap res-label"></div><article class="report res-report"></article></div>
 </section>
 </div>
@@ -81,12 +81,12 @@
 <section aria-labelledby="h-avaliar" id="avaliar-form">
   <div class="sec-head">
     <h2 id="h-avaliar">Avaliar uma plataforma</h2>
-    <p class="muted">Preencha a identificação e toque em cada setor do selo para avaliar o critério. O setor ganha a cor do risco escolhido.</p>
+    <p class="muted">Preencha a identificação e toque em cada setor do radar para avaliar o critério. O setor ganha a cor do risco escolhido.</p>
   </div>
   <form class="form" id="form" novalidate>
     <div class="fields">
-      <div class="field"><div class="field-heading"><label for="f-nome">Plataforma</label><details class="field-help"><summary aria-label="Informações sobre plataforma"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r="0.9" fill="currentColor"/></svg></summary><p id="help-nome">Ferramenta digital que utiliza inteligência artificial em alguma função, como gerar conteúdo, recomendar atividades ou analisar respostas. Avalie a função utilizada pela rede.</p></details></div><input aria-describedby="help-nome" placeholder="GatomIA" id="f-nome" required autocomplete="off"></div>
-      <div class="field"><div class="field-heading"><label for="f-versao">Versão ou plano</label><details class="field-help"><summary aria-label="Informações sobre versão ou plano"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r="0.9" fill="currentColor"/></svg></summary><p id="help-versao">Informe a versão ou o plano de acesso avaliado. Recursos e condições de uso podem variar entre planos gratuitos, pagos ou institucionais.</p></details></div><input aria-describedby="help-versao" placeholder="Versão 0.2 - Plano gratuito" id="f-versao" autocomplete="off"></div>
+      <div class="field"><div class="field-heading"><label for="f-nome">Plataforma</label><span class="field-help"><button type="button" class="help-btn" aria-label="Informações sobre plataforma" aria-describedby="help-nome" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r="0.9" fill="currentColor"/></svg></button><span class="help-pop" role="tooltip" id="help-nome">Ferramenta digital que utiliza inteligência artificial em alguma função, como gerar conteúdo, recomendar atividades ou analisar respostas. Avalie a função utilizada pela rede.</span></span></div><input aria-describedby="help-nome" placeholder="GatomIA" id="f-nome" required autocomplete="off"></div>
+      <div class="field"><div class="field-heading"><label for="f-versao">Versão ou plano</label><span class="field-help"><button type="button" class="help-btn" aria-label="Informações sobre versão ou plano" aria-describedby="help-versao" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r="0.9" fill="currentColor"/></svg></button><span class="help-pop" role="tooltip" id="help-versao">Informe a versão ou o plano de acesso avaliado. Recursos e condições de uso podem variar entre planos gratuitos, pagos ou institucionais.</span></span></div><input aria-describedby="help-versao" placeholder="Versão 0.2 - Plano gratuito" id="f-versao" autocomplete="off"></div>
       <div class="field"><div class="field-heading"><label for="f-avaliador">Quem está respondendo</label></div><input id="f-avaliador" placeholder="Maria e João" autocomplete="off"></div>
       <div class="field"><div class="field-heading"><label for="f-data">Data da avaliação</label></div><input id="f-data" type="date"></div>
     </div>
@@ -107,9 +107,9 @@
     </div>
     <div class="field"><label for="f-obs">Observações gerais</label><textarea id="f-obs" rows="3" placeholder="Ex.: Avaliação das funções usadas no 9º ano, com conta de teste."></textarea></div>
     <section class="evid" id="evid" aria-labelledby="h-evid">
-      <p class="if-label">Indicador à parte · não altera o selo de risco</p>
+      <p class="if-label">Indicador à parte · não altera o radar de risco</p>
       <h3 id="h-evid">Evidência de impacto na aprendizagem</h3>
-      <p class="muted">Registre se há estudos que mostram que a plataforma melhora a aprendizagem. Este indicador aparece ao lado do selo e no relatório, mas não muda o nível de risco.</p>
+      <p class="muted">Registre se há estudos que mostram que a plataforma melhora a aprendizagem. Este indicador aparece ao lado do radar e no relatório, mas não muda o nível de risco.</p>
       <details class="rot evid-guia"><summary><span class="rot-head" style="font-size:18px">Como reconhecer cada nível</span><span class="rot-open" aria-hidden="true"></span></summary>
         <div class="evid-guia-body">
           <p>Peça ao fornecedor os estudos que sustentam o que ele afirma sobre aprendizagem e faça estas perguntas:</p>
@@ -127,7 +127,7 @@
       <div class="field"><label for="ev-fonte">Estudo ou fonte (com data e contexto)</label><textarea id="ev-fonte" rows="2" placeholder="Ex.: Título do estudo, link, data e público participante."></textarea></div>
     </section>
     <div class="form-actions">
-      <button class="btn" type="submit">Gerar selo e relatório</button>
+      <button class="btn" type="submit">Gerar radar e relatório</button>
       <button class="btn ghost" type="button" id="btn-rascunho">Salvar e continuar depois</button>
       <button class="btn ghost" type="button" id="btn-limpar">Limpar formulário</button>
       <span class="err" id="form-err" role="alert"></span>
@@ -135,8 +135,8 @@
   </form>
 </section>
 
-<section class="res" id="res-avaliar" aria-label="Selo e relatório" hidden>
-  <div class="sec-head"><h2>Selo e relatório</h2></div>
+<section class="res" id="res-avaliar" aria-label="Radar e relatório" hidden>
+  <div class="sec-head"><h2>Radar e relatório</h2></div>
   <div class="result"><div class="lab-wrap res-label"></div><article class="report res-report"></article></div>
 </section>
 </div>

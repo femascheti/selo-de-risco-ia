@@ -612,9 +612,9 @@ function verdictText(s){
   const names = s.drivers.map(i => i.name).join('; ');
   const pend = s.pending.length ? ` ${s.pending.length} critério(s) ainda sem avaliação.` : '';
   const map = {
-    critico:{title:'Crítico · eliminatório', text:`Não deve ser usada com estudantes. Critério(s) que definem o selo: ${names}.`},
-    alto:{title:'Risco alto', text:`Uso só com correções e salvaguardas nos pontos indicados. Critério(s) que definem o selo: ${names}.`},
-    moderado:{title:'Risco moderado', text:`Uso possível com atenção aos pontos indicados. Critério(s) que definem o selo: ${names}.`},
+    critico:{title:'Crítico · eliminatório', text:`Não deve ser usada com estudantes. Critério(s) que definem o radar: ${names}.`},
+    alto:{title:'Risco alto', text:`Uso só com correções e salvaguardas nos pontos indicados. Critério(s) que definem o radar: ${names}.`},
+    moderado:{title:'Risco moderado', text:`Uso possível com atenção aos pontos indicados. Critério(s) que definem o radar: ${names}.`},
     baixo:{title:'Risco baixo', text:'Todos os critérios avaliados foram classificados como Baixo.'}
   };
   const v = map[s.level]; return {title:v.title, text:v.text + pend};
@@ -665,7 +665,7 @@ function wheelSVG({niveis = {}, mode = 'selo', name = '', selected = null, inter
     its.forEach((it, k) => {
       const b0 = a0 + k * step + (k ? GAP_IT / 2 : 0), b1 = a0 + (k + 1) * step - (k < its.length - 1 ? GAP_IT / 2 : 0);
       const lv = niveis[it.id], L = LV[lv] && lv !== 'nv' ? LV[lv] : null;
-      const fill = L ? L.color : 'var(--wheel-empty)', ink = L ? (L.dark ? '#111111' : '#FFFFFF') : 'var(--wheel-ink)';
+      const fill = L ? L.color : `var(--axis-${cid})`, ink = L ? (L.dark ? '#111111' : '#FFFFFF') : 'var(--wheel-ink)';
       const mid = (b0 + b1) / 2, [cx, cy] = polar(163, mid);
       const words = wrapName(it.short, 11), ix = cx, iy = cy - 6 - (words.length - 1) * 6.5, tx = cx, ty = cy + 13 - (words.length - 1) * 6.5;
       const label = words.map((w, n) => `<tspan x="${tx.toFixed(1)}" dy="${n ? 13 : 0}">${esc(w)}</tspan>`).join('');
@@ -691,7 +691,7 @@ function wheelSVG({niveis = {}, mode = 'selo', name = '', selected = null, inter
     center += `<text class="w-name" text-anchor="middle" fill="${ink}">${lines.map((l, n) => `<tspan x="0" y="${(L ? top : 18) + n * 18}">${esc(l)}</tspan>`).join('')}</text>`;
     if(L) center += `<text class="w-lv" x="0" y="${(top) + lines.length * 18 + 4}" text-anchor="middle" fill="${ink}">${esc('Risco ' + L.name)}</text>`;
   }
-  return `<svg class="wheel" viewBox="-254 -254 508 508" role="group" aria-label="Selo de risco de IA${name ? ' de ' + esc(name) : ''}">${out}${center}</svg>`;
+  return `<svg class="wheel" viewBox="-254 -254 508 508" role="group" aria-label="Radar de risco de IA${name ? ' de ' + esc(name) : ''}">${out}${center}</svg>`;
 }
 function labelHTML(ev, {pending=false} = {}){
   const s = summarize(ev.niveis);
@@ -726,7 +726,7 @@ function reportHTML(ev){
     <div class="verdict"><b>${esc(v.title)}</b><span>${esc(v.text)}</span></div>
     <div class="tbl"><table><thead><tr><th>Critério</th><th>Nível</th><th>Motivo da classificação</th><th>Fonte ou evidência</th></tr></thead><tbody>${rows}</tbody></table></div>
     ${ev.obs ? `<p><b>Observações:</b> ${esc(ev.obs)}</p>` : ''}
-    <div class="evid-rep"><b>Evidência de impacto na aprendizagem</b> <span class="muted">(indicador à parte, não altera o selo)</span><br>${esc(EVNAME[(ev.evidencia||{}).nivel] || 'Não verificado')}${(ev.evidencia && ev.evidencia.fonte) ? ` · <span class="muted">${esc(ev.evidencia.fonte)}</span>` : ''}</div>
+    <div class="evid-rep"><b>Evidência de impacto na aprendizagem</b> <span class="muted">(indicador à parte, não altera o radar)</span><br>${esc(EVNAME[(ev.evidencia||{}).nivel] || 'Não verificado')}${(ev.evidencia && ev.evidencia.fonte) ? ` · <span class="muted">${esc(ev.evidencia.fonte)}</span>` : ''}</div>
     <p class="muted">Este relatório registra a análise da rede. Não é certificação. A decisão de uso cabe à rede, e a classificação deve ser revista quando os termos ou as funções da plataforma mudarem.</p>`;
 }
 function reportFile(ev){
@@ -738,11 +738,11 @@ function reportFile(ev){
 <p>SELO DE RISCO DE IA · [Nome da rede] · Uso interno</p><h1>${esc(ev.nome)}</h1>
 <p>${ev.versao?esc(ev.versao)+' · ':''}Avaliada em ${fmtDate(ev.data)}${ev.avaliador?' · '+esc(ev.avaliador):''}</p>
 ${ev.preliminar?'<p><b>Análise preliminar:</b> baseada só em documentos públicos, sem uso da plataforma e antes da rubrica. A rede deve validar cada classificação.</p>':''}
-<div class="v"><b>Selo: ${esc(v.title)}</b><br>${esc(v.text)}</div>
-<p>Regra: o selo assume o pior nível entre os critérios avaliados. O nível Crítico é eliminatório.</p>
+<div class="v"><b>Radar: ${esc(v.title)}</b><br>${esc(v.text)}</div>
+<p>Regra: o radar assume o pior nível entre os critérios avaliados. O nível Crítico é eliminatório.</p>
 <table><thead><tr><th>Critério</th><th>Nível</th><th>Motivo da classificação</th><th>Fonte ou evidência</th></tr></thead><tbody>${rows}</tbody></table>
 ${ev.obs?`<p><b>Observações:</b> ${esc(ev.obs)}</p>`:''}
-<p><b>Evidência de impacto na aprendizagem</b> (indicador à parte, não altera o selo): ${esc(EVNAME[(ev.evidencia||{}).nivel] || 'Não verificado')}${(ev.evidencia && ev.evidencia.fonte) ? ' · '+esc(ev.evidencia.fonte) : ''}</p>
+<p><b>Evidência de impacto na aprendizagem</b> (indicador à parte, não altera o radar): ${esc(EVNAME[(ev.evidencia||{}).nivel] || 'Não verificado')}${(ev.evidencia && ev.evidencia.fonte) ? ' · '+esc(ev.evidencia.fonte) : ''}</p>
 <p><small>Este relatório registra a análise da rede. Não é certificação. A decisão de uso cabe à rede, e a classificação deve ser revista quando os termos ou as funções da plataforma mudarem.</small></p></body></html>`;
 }
 
@@ -883,7 +883,7 @@ function showItem(id, {focus = false} = {}){
   const idx = WHEEL_ITEMS.findIndex(i => i.id === id);
   document.getElementById('btn-ant').disabled = idx === 0;
   const last = idx === WHEEL_ITEMS.length - 1;
-  document.getElementById('btn-prox').textContent = last ? 'Revisar e gerar o selo' : 'Próximo critério';
+  document.getElementById('btn-prox').textContent = last ? 'Revisar e gerar o radar' : 'Próximo critério';
   renderAvaliarWheel();
   if(focus){
     const fs = document.getElementById('fs-' + id);
@@ -909,6 +909,18 @@ document.addEventListener('click', e => {
   if(btn){ const w = btn.parentElement, open = !w.classList.contains('open'); w.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); }
 });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.base-wrap.open').forEach(w => { w.classList.remove('open'); w.querySelector('.base-btn').setAttribute('aria-expanded', 'false'); }); });
+/* Ícones "i": abrem ao passar o mouse e fecham ao tirar; no toque, abrem e fecham com um toque. */
+function fecharDica(w){ w.classList.remove('open'); const b = w.querySelector('.base-btn, .help-btn'); if(b) b.setAttribute('aria-expanded', 'false'); }
+document.addEventListener('mouseout', e => {
+  const w = e.target.closest && e.target.closest('.base-wrap, .field-help');
+  if(w && !w.contains(e.relatedTarget)){ fecharDica(w); const b = w.querySelector('.base-btn, .help-btn'); if(b && document.activeElement === b && e.pointerType !== 'touch') b.blur(); }
+});
+document.addEventListener('click', e => {
+  const hb = e.target.closest('.help-btn');
+  document.querySelectorAll('.field-help.open').forEach(w => { if(!hb || w !== hb.parentElement) fecharDica(w); });
+  if(hb){ const w = hb.parentElement, on = !w.classList.contains('open'); w.classList.toggle('open', on); hb.setAttribute('aria-expanded', String(on)); }
+});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.field-help.open').forEach(fecharDica); });
 
 /* toolkit: painel lateral com roteiro de perguntas e modelo de ofício */
 let kitReturn = null;
@@ -1065,7 +1077,7 @@ document.getElementById('btn-rascunho').addEventListener('click', async () => {
     fillForm(draftBase); document.getElementById('f-avaliador').value = ev.avaliador;
     showDraftBanner(); saveDraft();
     const n = ITEMS.filter(i => body.niveis[i.id] && body.niveis[i.id] !== 'nv').length;
-    er.innerHTML = `Salvo. ${n} de ${ITEMS.length} critérios avaliados. Outra pessoa pode continuar em <a href="#acervo">Acervo de selos › Avaliações em andamento</a>.`;
+    er.innerHTML = `Salvo. ${n} de ${ITEMS.length} critérios avaliados. Outra pessoa pode continuar em <a href="#acervo">Acervo de radares › Avaliações em andamento</a>.`;
   }catch(err){ er.textContent = 'Não foi possível salvar. Tente de novo em instantes.'; }
   btn.disabled = false;
 });
@@ -1128,7 +1140,7 @@ function showResult(ev, {saved, history=[], where='avaliar'} = {}){
         await db.collection('avaliacoes').doc(ev._draftId).set(dd);
         draftId = null; draftBase = null; showDraftBanner();
       }
-      st.innerHTML = 'Salvo no acervo. <a href="#acervo">Ver no acervo de selos</a>.'; bs.remove();
+      st.innerHTML = 'Salvo no acervo. <a href="#acervo">Ver no acervo de radares</a>.'; bs.remove();
       try{ localStorage.removeItem('selo-draft'); }catch(e){}
     }catch(err){ bs.disabled = false; st.textContent = err && err.code === 'quota_exceeded' ? 'O acervo atingiu o limite de registros. Libere espaço removendo os dados do site no navegador.' : 'Não foi possível salvar. Tente de novo em instantes.'; }
   });
@@ -1197,7 +1209,7 @@ function renderAcervo(docs){
   if(!groups.length){ box.innerHTML = `<p class="empty">Nenhuma plataforma no acervo ainda. Avalie a primeira no formulário abaixo e salve o resultado.</p>`; st.textContent=''; return; }
   st.textContent = `${groups.length} plataforma(s) no acervo · ${groups.filter(g=>g.pending).length} aguardando avaliação`;
   box.innerHTML = groups.map((g,idx) => `<div class="lab-wrap">
-      <button type="button" data-g="${idx}" style="all:unset;cursor:pointer;display:block" aria-label="Abrir selo e relatório de ${esc(g.latest.nome)}">${labelHTML(g.latest, {pending:g.pending})}</button>
+      <button type="button" data-g="${idx}" style="all:unset;cursor:pointer;display:block" aria-label="Abrir radar e relatório de ${esc(g.latest.nome)}">${labelHTML(g.latest, {pending:g.pending})}</button>
       ${g.history.length > 1 ? `<span class="muted" style="font-size:14px">${g.history.length} avaliações registradas</span>` : ''}
     </div>`).join('');
   box.querySelectorAll('[data-g]').forEach(b => b.addEventListener('click', () => {

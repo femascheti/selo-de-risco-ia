@@ -1,4 +1,6 @@
-# Selo de Risco de IA
+# Radar de Risco de IA
+
+(Antes chamado Selo de Risco de IA; o repositório e o domínio mantêm o nome antigo.)
 
 Site estático (HTML, CSS e JavaScript, sem etapa de build) do Selo de Risco de IA do Observatório. Origem: protótipo publicado como artefato do Claude, em 24/11/2026.
 

@@ -2,6 +2,12 @@
 
 ## Decisões em vigor
 
+- Nome da ferramenta: "Radar de Risco de IA"; o subtítulo passa a "Avaliação de riscos de plataformas educacionais com IA" (27/11/2026).
+
+- Ícones de informação (campos de identificação e bases normativas): abrem ao passar o mouse e fecham ao tirar o mouse; no toque, abrem e fecham com um toque (27/11/2026).
+
+- Setores ainda não avaliados aparecem na cor clara do eixo a que pertencem (27/11/2026).
+
 - Publicação: alterações desta sessão autorizadas para produção pela usuária, via branch `main` de `femascheti/selo-de-risco-ia`, no projeto `selo-de-risco-ia` da equipe Vercel `femascheti-playground` (27/11/2026).
 
 - Separação angular entre os três eixos do selo: 1,2 grau (27/11/2026).
@@ -66,3 +72,12 @@
 - **Conferência prévia**: branch remota e produção anterior no commit `ac46a3e6ee37ad426bc50736c624bc2c125bf6a9`; destino de produção confirmado pelo conector Vercel, projeto `prj_KhQjwNTl8ZA5Di6dauOOlpKQvPS3`.
 - **Substitui**: restrição de entrega apenas local desta sessão; preserva armazenamento e regras de avaliação.
 - **Reversão**: reverter o commit de melhorias e publicar a reversão ou restaurar a versão anterior na Vercel, se solicitado.
+
+## 2026-11-27: Radar, ícones por mouse-over e cores dos eixos
+
+- **Contexto**: a usuária pediu, no Claude, três ajustes: ícones "i" abrindo por mouse-over em vez de exigir clique para fechar; critérios na cor clara do seu eixo; troca de "Matriz de riscos de plataformas educacionais com IA" por "Avaliação de riscos de plataformas educacionais com IA" e da palavra "Selo" por "Radar".
+- **Decisão**: (1) as ajudas de Plataforma e Versão deixam de ser `<details>` e passam a botão com dica (`role="tooltip"`), visível em `:hover` e `:focus-within`; as bases normativas mantêm a dica por hover e passam a fechar ao tirar o mouse, mesmo depois de um clique; no toque, um toque abre e outro fecha; Esc fecha. (2) Na roda, o preenchimento dos setores sem nível usa `var(--axis-<eixo>)` em vez de `--wheel-empty`; a legenda do acervo foi atualizada. (3) "Selo/selos" virou "Radar/radares" em todo texto visível (título, menu, botões, relatório, rótulos de acessibilidade).
+- **Fora do escopo**: identificadores de código, classes CSS, chave do `localStorage` (`selo-acervo-v1`), nome do repositório e domínio continuam com "selo", para não perder acervos já salvos nem quebrar o endereço. A palavra "selos" na rubrica de engajamento (recompensas de gamificação) e o "selo kidSAFE" nos registros do acervo foram mantidos, porque têm outro sentido.
+- **Origem**: pedido explícito da usuária; implementação proposta pelo Claude.
+- **Verificação**: sintaxe JavaScript conferida; em Chromium local (1280 px), as dicas abrem no hover, fecham ao sair, inclusive após clique, e a roda mostra os três eixos com cores distintas.
+- **Reversão**: reverter este commit.
