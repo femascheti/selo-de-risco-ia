@@ -112,3 +112,10 @@
 - **Origem**: pedido da usuária; o critério de "mesmo tamanho" como mesma área visual foi escolha do Claude.
 - **Verificação**: Chromium local, larguras de 1280, 1024 e 390 px, sem rolagem horizontal.
 - **Reversão**: reverter este commit.
+
+## 2026-11-27: novo logo TLTL/Teachers College e "Como funciona" maior
+
+- **Contexto**: a usuária enviou um logo único de TLTL e Teachers College para substituir os dois que estavam no rodapé, e pediu fonte um pouco maior em "Como funciona".
+- **Decisão**: `logos/logo-2.png` foi substituído por `logos/logo-tltl-tc.png`, feito a partir do arquivo enviado e com a margem branca recortada. A altura no rodapé foi ajustada para 56 px no computador e 42 px no celular, mantendo o equilíbrio com os demais logos. "Como funciona" passou de 18 para 21 px no computador e de 16 para 18 px no celular.
+- **Origem**: pedido da usuária no chat.
+- **Reversão**: reverter este commit.

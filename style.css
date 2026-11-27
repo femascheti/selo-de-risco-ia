@@ -356,7 +356,7 @@ th{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute
 
 /* ---------- onboarding: boas-vindas e "Antes de começar" ---------- */
 :root{--area-ped:#912A8D;--area-jur:#004B85;--area-ti:#0E7C86;--area-ges:#5B5F66}
-.nav-help{min-height:44px;padding:8px 4px;background:none;border:0;color:var(--accent);font-family:var(--display);font-weight:700;font-size:18px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.nav-help{min-height:44px;padding:8px 4px;background:none;border:0;color:var(--accent);font-family:var(--display);font-weight:700;font-size:21px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .prep-link{font-size:16px;color:var(--muted);margin-top:12px}
 .prep-link a{font-weight:700}
 .area-tags{display:flex;flex-wrap:wrap;gap:8px}
@@ -421,12 +421,12 @@ a.btn{display:inline-flex;align-items:center;text-decoration:none}
   .nav-help{margin-left:auto}
   .nav-links{width:100%;justify-content:flex-end}
 }
-@media (max-width:560px){.nav-links a{white-space:normal}.nav-help{margin:0 auto;font-size:16px;min-height:36px;padding:2px 4px}}
+@media (max-width:560px){.nav-links a{white-space:normal}.nav-help{margin:0 auto;font-size:18px;min-height:36px;padding:2px 4px}}
 /* ---------- rodapé: logos com o mesmo peso visual (mesma área) ---------- */
 .site-foot .logo-plate{padding:6px 10px}
 .site-foot .logo-plate img{height:var(--lh)!important;width:auto;max-width:none}
-.site-foot .lg-tltl{--lh:44px}
+.site-foot .lg-tltl{--lh:56px}
 .site-foot .lg-itau{--lh:70px}
 .site-foot .lg-ftv{--lh:58px}
 .foot-in{gap:14px 28px}
-@media (max-width:560px){.site-foot .lg-tltl{--lh:36px}.site-foot .lg-itau{--lh:60px}.site-foot .lg-ftv{--lh:50px}}
+@media (max-width:560px){.site-foot .lg-tltl{--lh:42px}.site-foot .lg-itau{--lh:60px}.site-foot .lg-ftv{--lh:50px}}
