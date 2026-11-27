@@ -409,3 +409,24 @@ a.btn{display:inline-flex;align-items:center;text-decoration:none}
   .prep-card{break-inside:avoid}
   .area{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
+/* ---------- menu: "Como funciona" ao centro, páginas à direita ---------- */
+.nav-links a{white-space:nowrap}
+@media (min-width:1080px){
+  .nav-in{display:grid;grid-template-columns:auto 1fr auto;align-items:center}
+  .nav-help{justify-self:center}
+  .nav-links{flex-wrap:nowrap}
+}
+@media (max-width:1079px){
+  .nav-help{margin-left:auto}
+  .nav-links{width:100%;justify-content:flex-end}
+}
+@media (max-width:560px){.nav-links a{white-space:normal}.nav-help{margin:0 auto;font-size:16px;min-height:36px;padding:2px 4px}}
+/* ---------- rodapé: logos com o mesmo peso visual (mesma área) ---------- */
+.site-foot .logo-plate{padding:6px 10px}
+.site-foot .logo-plate img{height:var(--lh)!important;width:auto;max-width:none}
+.site-foot .lg-tltl{--lh:44px}
+.site-foot .lg-itau{--lh:70px}
+.site-foot .lg-ftv{--lh:58px}
+.foot-in{gap:14px 28px}
+@media (max-width:560px){.site-foot .lg-tltl{--lh:36px}.site-foot .lg-itau{--lh:60px}.site-foot .lg-ftv{--lh:50px}}

@@ -104,3 +104,11 @@
 - **Decisão**: o campo já não era obrigatório na validação; o rótulo passou a dizer "(opcional)", como o campo "Registro do que encontrou".
 - **Origem**: pedido explícito da usuária no chat.
 - **Reversão**: reverter este commit.
+
+## 2026-11-27: logo da Fundação Telefônica Vivo no rodapé e menu reorganizado
+
+- **Contexto**: a usuária enviou o logo da Fundação Telefônica Vivo para entrar no rodapé com os demais, todos do mesmo tamanho. Também pediu "Como funciona" ao centro do menu e as três páginas à direita.
+- **Decisão**: (1) Novo arquivo `logos/logo-fundacao-telefonica-vivo.png`, a partir do arquivo enviado pela usuária, com a margem branca recortada. Ele fica em "Realização", depois da Fundação Itaú. As bordas brancas de `logo-2.png` (TLTL/Teachers College) também foram recortadas. Como os logos têm proporções muito diferentes (TLTL é horizontal, Itaú quase quadrado), a mesma altura deixaria o TLTL pequeno e o Itaú grande. Por isso, a altura de cada logo foi ajustada para que todos ocupem área parecida e tenham o mesmo peso visual (`--lh` por classe). (2) Menu: acima de 1080 px, a grade fica logo | "Como funciona" | páginas, com "Como funciona" centralizado no espaço entre o logo e os botões. Abaixo disso, os botões ficam à direita numa linha própria. No celular, "Como funciona" fica centralizado numa linha própria.
+- **Origem**: pedido da usuária; o critério de "mesmo tamanho" como mesma área visual foi escolha do Claude.
+- **Verificação**: Chromium local, larguras de 1280, 1024 e 390 px, sem rolagem horizontal.
+- **Reversão**: reverter este commit.
